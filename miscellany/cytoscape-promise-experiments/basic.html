@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>cyjse </title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <script src="cytoscape.js"></script>
+   <script src="sampleGraph.json"></script>
+<style>
+#cyDiv {
+  margin: auto;
+  width: 95%;
+  height: 800px;
+  border: 1px solid #444;
+  border-radius:5px;
+  display: block;
+  }
+</style>
+<script>
+//----------------------------------------------------------------------------------------------------
+$(document).ready(function() {
+   console.log("document ready");
+   var cyDiv = $("#cyDiv");
+   window.cy = cytoscape({
+      container: document.getElementById('cyDiv'),
+      elements: network.elements,
+     layout: { name: 'preset'},
+     style: [{selector: 'node', style: {'content': 'data(id)'}},
+             {selector: ':parent', style: {'background-opacity': 0.6}}
+            ]
+     }); // cytoscape
+
+}); // document ready
+//----------------------------------------------------------------------------------------------------
+// longRunningLayoutTask("grid")   // very fast
+// longRunningLayoutTask("cose")   // very slow
+// your job: use a Promise in this function so that it does not return
+// until the layout is complete
+function longRunningLayoutTask(layoutName)
+{
+   cy.layout({name: layoutName}).run()
+}
+//----------------------------------------------------------------------------------------------------
+</script>
+</head>
+<body>
+<div id="cyDiv"></div>
+</body>
+</html>
+
