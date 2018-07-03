@@ -31,3 +31,13 @@ x = 5
 y = 8
 x \\ y
 
+
+
+#6
+age = 16
+adult = age + 5
+
+if adult < age:
+    print("you're a teenager")
+else:
+    print("you're officially an adult!")
