@@ -40,3 +40,11 @@ h %% g
 26%/% 8
 
 //6
+age = 16
+adult = age + 5
+
+if (age < adult){
+    print("you're a teenager.")
+} else {
+    print("you're officially an adult!")
+}
