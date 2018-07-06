@@ -1,0 +1,5 @@
+                                        #LISTS
+#when making lists in r, use c before parenthesis ---> c(1, 2, 3)
+fruit = c('apple', 'grape', 'jelly')
+fruit
+
