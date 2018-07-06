@@ -21,8 +21,4 @@ multiply <- function(u){
 print(multiply(y))
 
 
-#3----a function that can convert a string to a float 
-fltdbl <- function(a){
-    return (as.double(a))
-}x
-print(fltdbl("10.8"))
+#

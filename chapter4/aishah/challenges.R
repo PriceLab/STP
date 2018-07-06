@@ -8,17 +8,20 @@ print(squared(2))
 #and returns the int by 2. second one returns an integer * 4.
 #call the first function, save the number, then pass to the second one
 
-division <- function(x){
+divideBy2 <- function(x){
     return (x/2)
     }
-y = division(2)
-print(y)
+y = divideBy2(18)
 
 
-multiply <- function(u){
+multiplyBy4 <- function(u){
     return (u *4)
 }
-print(multiply(y))
+print(multiplyBy4(y))
 
 
-#
+#3----a function that can convert a string to a float
+toFloat <- function(a){
+    return (as.double(a))
+}
+print(fltdbl("10.8"))
