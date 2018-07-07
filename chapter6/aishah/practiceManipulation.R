@@ -14,5 +14,10 @@ strsplit("hello,yes!", ",")
 
                                         #joining text
 words <-  ["the", "fox", "jumped", "."]
-y = words
-join(words)
+
+
+
+#replace function
+equ <- ( "all animals are equal")
+y <- gsub("a", "@", equ)
+print(y)
