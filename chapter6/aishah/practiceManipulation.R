@@ -21,3 +21,7 @@ words <-  ["the", "fox", "jumped", "."]
 equ <- ( "all animals are equal")
 y <- gsub("a", "@", equ)
 print(y)
+
+
+#finding an index in a string
+ gregexpr( pattern = 'e', "the bee")
