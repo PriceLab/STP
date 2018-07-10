@@ -1,4 +1,4 @@
-# reverseString.R
+                                        # reverseString.R
 #------------------------------------------------------------------------------
 library(RUnit)
 #------------------------------------------------------------------------------
@@ -11,7 +11,18 @@ runTests <- function()
 # hint: make (indirect) use of base R's list reversal function "rev"
 reverseString <- function(s)
 {
-   # check first: is s truly a string?
+    # check first: is s truly a string?
+    if (!all(is.string(s))){
+        msg <- sprintf("error in reverseString: argument is not a string")
+        stop(msg)
+        }
+
+
+    splitString <- strsplit(s, "")
+    list <- as.list(splitString) [[1]]
+    revList <-  rev(list)
+    listToString <- paste(revList, collapse = "")
+    return (listToString)
 
 } # reverseString
 #------------------------------------------------------------------------------
