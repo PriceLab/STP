@@ -12,7 +12,7 @@ runTests <- function()
 reverseString <- function(s)
 {
     # check first: is s truly a string?
-    if (!all(is.string(s))){
+    if (!all(is.character(s))){
         msg <- sprintf("error in reverseString: argument is not a string")
         stop(msg)
         }
@@ -36,7 +36,7 @@ test_reverseString <- function()
 
    checkEquals(reverseString(""), "")
    checkEquals(reverseString("z"), "z")
-   checkEquals(reverseString("for whom the bell tools"), "sllot lleb eht mohw rof")
+   checkEquals(reverseString("for whom the bell tools"), "sloot lleb eht mohw rof")
 
 
 } # test_reverseString
