@@ -10,7 +10,8 @@ runTests <- function()
 #------------------------------------------------------------------------------
 # hint: make (indirect) use of base R's list reversal function "rev"
 
-#creates the function that can later be called to run. it is a function of s, meaning when called, whatever is in the () will go through function as s
+ #creates the function that can later be called to run. it is a function of s, meaning when called,
+#whatever is in the () will go through function as s
 reverseString <- function(s)
 {
     # check first: is s truly a string?
