@@ -59,3 +59,11 @@ test_reverseString <- function()
 
 } # test_reverseString
 #------------------------------------------------------------------------------
+test_reverseListOfStrings()
+{
+   print("--- test_reverseListOfStrings")
+
+   checkEquals(reverseString(c("england", "croatia")), c("dnalgne", "aitaorc"))
+
+} # test_reverseListOfStrings
+#------------------------------------------------------------------------------
