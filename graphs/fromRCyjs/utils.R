@@ -103,6 +103,7 @@ createTestGraph <- function(nodeCount, edgeCount)
 
        # allocate more character vectors that we could ever need; unused are deleted at conclusion
 
+    browser()
     vector.count <- 10 * (length(edgeNames(g)) + length (nodes(g)))
     vec <- vector(mode="character", length=vector.count)
     i <- 1;

@@ -4,6 +4,7 @@ library(graph)
 library(jsonlite)
 #------------------------------------------------------------------------------------------------------------------------
 printf <- function(...) print(noquote(sprintf(...)))
+cleanup <- function(s) gsub('\"', "'", s)
 #------------------------------------------------------------------------------------------------------------------------
 # use ~/github/projects/examples/cyjsMinimal/cyjs.html to test out json strings produced here
 #------------------------------------------------------------------------------------------------------------------------
@@ -54,7 +55,7 @@ createTestGraph <- function(nodeCount, edgeCount)
 test_1669_3260 <- function(display=FALSE)
 {
    printf("--- test_1669_3260")
-   g.json <- RCyjs:::.graphToJSON(g.small)
+   g.json <- .graphToJSON(g.small)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -66,7 +67,7 @@ test_1669_3260 <- function(display=FALSE)
    checkEquals(lapply(g2$elements, dim), list(nodes=c(11, 27), edges=c(14,4)))
 
    system.time(  # < 14 seconds elapsed: 1669 nodes, 3260 edges
-      g.json <- RCyjs:::.graphToJSON(g.big)
+      g.json <- .graphToJSON(g.big)
       )
 
    if(display){
@@ -84,7 +85,7 @@ test_2_nodes_2_edges_no_attributes <- function(display=FALSE)
    printf("--- test_2_nodes_2_edges_no_attributes")
 
    g <- createTestGraph(2, 2)
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -104,7 +105,7 @@ test_20_nodes_20_edges_no_attributes <- function(display=FALSE)
    printf("--- test_20_nodes_20_edges_no_attributes")
 
    g <- createTestGraph(20, 20)
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -124,7 +125,7 @@ test_200_nodes_200_edges_no_attributes <- function(display=FALSE)
    printf("--- test_200_nodes_200_edges_no_attributes")
 
    g <- createTestGraph(200, 200)
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -145,7 +146,7 @@ test_2000_nodes_2000_edges_no_attributes <- function(display=FALSE)
 
    print(system.time({   # 4 seconds
       g <- createTestGraph(2000, 2000)
-      g.json <- RCyjs:::.graphToJSON(g)
+      g.json <- .graphToJSON(g)
       }))
 
    if(display){
@@ -165,7 +166,7 @@ test_1_node <- function(display=FALSE)
 {
    printf("--- test_1_node")
    g <- graphNEL(nodes="A", edgemode="directed")
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -188,7 +189,7 @@ test_1_node_with_position <- function(display=FALSE)
    nodeData(g, n="A", "xPos") <- pi
    nodeData(g, n="A", "yPos") <- cos(pi)
 
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -210,7 +211,7 @@ test_2_nodes <- function(display=FALSE)
    printf("--- test_2_nodes")
 
    g <- graphNEL(nodes=c("A", "B"), edgemode="directed")
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -229,7 +230,7 @@ test_2_nodes_1_edge <- function(display=FALSE)
 
    g <- graphNEL(nodes=c("X", "Y"), edgemode="directed")
    g <- addEdge("X", "Y", g);
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -260,7 +261,7 @@ test_1_node_2_attributes <- function(display=FALSE)
    nodeDataDefaults(g, "label") <- ""
    nodeData(g, "A", "label") <- "bigA"
 
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -286,7 +287,7 @@ test_2_nodes_1_edge_2_edgeAttribute <- function(display=FALSE)
    edgeData(g, "X", "Y", "weight") <- 1.234
    edgeData(g, "X", "Y", "edgeType") <- "regulates"
 
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
@@ -314,7 +315,7 @@ test_smallGraphWithAttributes <- function(display=FALSE)
 {
    printf("--- test_smallGraphWithAttributes")
    g <- simpleDemoGraph()
-   g.json <- RCyjs:::.graphToJSON(g)
+   g.json <- .graphToJSON(g)
 
    if(display){
       writeLines(sprintf("network = %s", g.json), "network.js")
