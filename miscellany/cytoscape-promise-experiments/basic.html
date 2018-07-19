@@ -37,9 +37,16 @@ $(document).ready(function() {
 // your job: use a Promise in this function so that it does not return
 // until the layout is complete
 function longRunningLayoutTask(layoutName)
-{
-   cy.layout({name: layoutName}).run()
-}
+  {
+      var promise = new Promise(function(resolve, reject) {
+	  cy.layout({name: layoutName}).run();
+	  resovle(result);
+      });
+      return promise;
+  };
+  longRunningLayoutTask().then(function(result) {
+      console.log("hey");
+  });
 //----------------------------------------------------------------------------------------------------
 </script>
 </head>
