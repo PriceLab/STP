@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> One Node Only</title>
+     <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.4/cytoscape.js"></script>
+<style>
+#cyjs{
+  height: 1000px;
+  width: 95%;
+  }
+</style>
+
+<script>
+$(document).ready(function(){
+    var dataString = '{"nodes":[{"data":{"id":"A"}}]}';
+    data = JSON.parse(dataString);
+    options = {container: $('#cyjs'),
+               elements: data,
+               style: cytoscape.stylesheet()
+                   .selector('node').style({'background-color': '#ddd',
+                                            'label': 'data(id)',
+                                            'text-valign': 'center',
+                                            'text-halign': 'center',
+                                            'border-width': 1})
+                 }; // options
+    window.cy = cytoscape(options);
+    function resizeHandler(event){
+        $("#cyjs").height(window.innerHeight * 0.95);
+	cy.fit(300)
+        }
+    window.addEventListener("resize", resizeHandler, false)
+    cy.fit(300)
+    setTimeout(function() {resizeHandler();}, 1000);
+   }); // document.ready
+</script>
+
+</head>
+<body>
+<div id="cyjs"></div>
+
+</body>
+</html>
+
