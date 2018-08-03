@@ -13,9 +13,9 @@
 </style>
 
 <script>
-$(document).ready(function(){
+$(document).ready(function(){     
     options = {container: $('#cyjs'),
-               elements: {nodes: [{data: {id: 'A'}}]},
+               elements: {nodes: [{data: {id:'A'}},{data: {id:'B'}}]},
                }; // options
     cy = cytoscape(options);
     cy.fit(300)
