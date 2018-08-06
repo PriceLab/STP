@@ -13,10 +13,9 @@
 
 <script>
 $(document).ready(function(){
-    var dataString = '{"nodes":[{"data":{"id":"A"}}]}';
-    data = JSON.parse(dataString);
     options = {container: $('#cyjs'),
-               elements: data,
+               elements: {nodes: [{data: {id:'A'}
+					 }]},
                style: cytoscape.stylesheet()
                    .selector('node').style({'background-color': '#ddd',
                                             'label': 'data(id)',

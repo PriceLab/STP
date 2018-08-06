@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> 10 nodes, 15 edges</title>
+     <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.4/cytoscape.js"></script>
+
+<style>
+#cyjs{
+  height: 1000px;
+  width: 95%;
+  }
+</style>
+
+<script>
+$(document).ready(function(){     
+    options = {container: $('#cyjs'),
+                elements: [ // list of graph elements to start with
+
+
+                     //10 nodes
+		    {data: {id: '1'}},
+		    {data: {id: '2'}},
+		    {data: {id: '3'}},
+		    {data: {id: '4'}},
+		    {data: {id: '5'}},
+		    {data: {id: '6'}},
+		    {data: {id: '7'}},
+		    {data: {id: '8'}},
+		    {data: {id: '9'}},
+		    {data: {id: '10'}},
+		    
+
+
+		    //7 edges
+		    {data: {id: '12', source: '1', target: '2'}},
+		    {data: {id: '17', source: '1', target: '9'}},
+		    {data: {id: '53', source: '5',target: '3'}},
+	            {data: {id: '14', source: '1', target: '4'}},
+	            {data: {id: '45', source: '4', target: '5'}},
+		    {data: {id: '24', source: '2', target: '4'}},
+		    {data: {id: '32', source: '3', target: '2'}},
+                    {data: {id: '65', source: '6', target: '5'}},
+		    {data: {id: '78', source: '7', target: '8'}},
+		    {data: {id: '81', source: '8',target: '1'}},
+	            {data: {id: '92', source: '9', target: '2'}},
+	            {data: {id: '108', source: '10', target: '8'}},
+		    {data: {id: '75', source: '7', target: '5'}},
+		    {data: {id: '29', source: '2', target: '9'}},
+    	            {data: {id: '103', source: '10', target: '3'}},
+		],
+               }; // options
+    cy = cytoscape(options);
+    cy.fit(300)
+   }); // document.ready
+</script>
+
+</head>
+
+<body>
+   <div id="cyjs"></div>
+</body>
+
+</html>
+

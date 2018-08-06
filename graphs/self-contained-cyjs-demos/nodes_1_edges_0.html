@@ -14,7 +14,8 @@
 <script>
 $(document).ready(function(){
     options = {container: $('#cyjs'),
-               elements: {nodes: [{data: {id: 'A'}}]},
+               elements: {nodes: [{data: {id: ['A','B']}
+					 }]},
                style: cytoscape.stylesheet()
                    .selector('node').style({'background-color': '#ddd',
                                             'label': 'data(id)',

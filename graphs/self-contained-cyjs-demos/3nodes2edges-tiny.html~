@@ -17,9 +17,14 @@ $(document).ready(function(){
     options = {container: $('#cyjs'),
                elements:[ 
 		   {
-		      // nodes:
-		      data: {id:'A'},
+		       nodes:
+		       [{data: {id:'A'}},
+			{data: {id:'B'}}]
 		   },
+	       {
+		   edges:
+		   [{data:{source:'A', target:'B', id: 'AB'}}],
+	       },
 	       ],
                }; // options
     cy = cytoscape(options);
