@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> One Node Only</title>
+     <script type="text/javascript" language="javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.2.4/cytoscape.js"></script>
+     <script src="graph-01.json"></script>
+     <script src="style.js"></script>
+
+<style>
+#cyjs{
+  height: 1000px;
+  width: 95%;
+  }
+</style>
+
+<script>
+  $(document).ready(function(){
+      options = {container: $('#cyjs'),
+                 elements:[
+		   JSON.parse(graphJSON),
+	       ],
+              };// options
+
+  cy = cytoscape(options);
+  cy.style(myStyle)
+
+    cy.fit(300)
+   }); // document.ready
+</script>
+
+</head>
+
+<body>
+   <div id="cyjs"></div>
+</body>
+
+</html>
+
