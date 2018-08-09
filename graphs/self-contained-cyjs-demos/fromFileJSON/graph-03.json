@@ -1,0 +1,1 @@
+graphJSON ='[{"data":{"id":"A"}},{"data":{"id":"B"}},{"data":{"id":"C"}},{"data":{"id":"AB","source":"A","target":"B"}},{"data": {"id": "AC", "source": "A", "target": "C"}}]';
