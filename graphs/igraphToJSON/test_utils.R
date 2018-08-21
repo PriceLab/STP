@@ -6,16 +6,26 @@ source("utils.R")
 #----------------------------------------------------------------------------------------------------
 runTests <- function()
 {
-   test_createTestGraphs()
+   test_createEmptyTestGraph()
+   test_1NodeTestGraph()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
-test_createTestGraphs <- function()
+test_createEmptyTestGraph <- function()
 {
 
    g <- createTestGraph()        # an empty graph, always a good place to start
    checkEquals(length(V(g)), 0)
    checkEquals(length(E(g)), 0)
+
+} # test_createGraphs
+#----------------------------------------------------------------------------------------------------
+test_1NodeTestGraph <- function()
+{
+
+   g <- createTestGraph(1)        # 1 node graph
+    checkEquals(length(V(g)), 1)
+    checkEquals(length(E(g)), 0)
 
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------

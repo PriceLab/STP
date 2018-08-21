@@ -13,8 +13,17 @@
 library(igraph)
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
 {
+    printf("numberOfNodes: %d ", numberOfNodes)
+    printf("numberOfEdges: %d ", numberOfEdges)
+    printf("nodeAttributeCount: %s", length(nodeAttributes))
+    printf("EdgeAttributeCount: %s", length(edgeAttributes))
+
     if (numberOfNodes == 0){
         return (graph_from_literal())
+        }
+
+    if (numberOfNodes == 1){
+        return (graph_from_literal("A"))
         }
 
 
