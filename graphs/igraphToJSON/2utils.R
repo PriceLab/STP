@@ -18,11 +18,14 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
     printf("nodeAttributeCount: %s", length(nodeAttributes))
     printf("EdgeAttributeCount: %s", length(edgeAttributes))
 
-    if (numberOfNodes == 0){
-        return (graph_from_literal())
-        }
+    g <- graph_from_literal()
 
-    nodes <- paste("node-",1:numberOfNodes, sep="")
+    if(numberOfNodes == 0){
+       return(g)
+       }
+
+    node.names <- paste("node-", 1:numberOfNodes, sep="")
+    browser()
     g <- graph_from_literal() + vertices(letters[1:numberOfNodes])
     return(g)
 
