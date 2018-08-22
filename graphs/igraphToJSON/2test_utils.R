@@ -8,10 +8,7 @@ runTests <- function()
 {
    test_createEmptyTestGraph()
    test_1NodeTestGraph()
-   test_2NodeTestGraph()
-   test_3NodeTestGraph()
-   test_5NodeTestGraph()
-
+   test_15NodeTestGraph()
 } # runTests
 #----------------------------------------------------------------------------------------------------
 test_createEmptyTestGraph <- function()
@@ -32,32 +29,14 @@ test_1NodeTestGraph <- function()
 
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------
-test_2NodeTestGraph <- function()
+test_15NodeTestGraph <- function()
 {
 
-   g <- createTestGraph(2)        # 2 node graph
-    checkEquals(length(V(g)), 2)
+   g <- createTestGraph(15)        # 1 node graph
+    checkEquals(length(V(g)), 15)
     checkEquals(length(E(g)), 0)
 
-} # test_createGraphs
-#----------------------------------------------------------------------------------------------------
-test_3NodeTestGraph <- function()
-{
-
-   g <- createTestGraph(3)        # 3 node graph
-    checkEquals(length(V(g)), 3)
-    checkEquals(length(E(g)), 0)
-
-} # test_createGraphs
-#----------------------------------------------------------------------------------------------------
-test_5NodeTestGraph <- function()
-{
-
-   g <- createTestGraph(5)        # 5 node graph
-    checkEquals(length(V(g)), 5)
-    checkEquals(length(E(g)), 0)
-
-} # test_createGraphs
+}
 #----------------------------------------------------------------------------------------------------
 
 

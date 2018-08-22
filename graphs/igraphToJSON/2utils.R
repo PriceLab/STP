@@ -22,24 +22,9 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
         return (graph_from_literal())
         }
 
-    if (numberOfNodes == 1){
-        return (graph_from_literal("A"))
-        }
-
-    if (numberOfNodes == 2){
-        return (graph_from_literal("A","B"))
-        }
-
-    if (numberOfNodes == 3){
-        return (graph_from_literal("A","B","C"))
-        }
-
-#    nodes <- paste("node-",1:numberOfNodes, sep="")
-#    if (numberOfNodes == 5){
-#        b <- graph_from_literal()
-#        V(b)$name <- node5
-#        return (b)
-#    }
+    nodes <- paste("node-",1:numberOfNodes, sep="")
+    g <- graph_from_literal() + vertices(letters[1:numberOfNodes])
+    return(g)
 
 } # createTestGraph
 #------------------------------------------------------------------------------------------------------------------------
