@@ -1,45 +1,42 @@
-# utils.R:  utilitiy functions using igraph
-#------------------------------------------------------------------------------------------------------------------------
-# retun an igraph instance with the specified number of nodes, edges and attributes
-# name nodes in the style "node1", "node2", ...
-# name edges similarly: "edge1", "edge2"
-# create edges by randomly choosing pairs of nodes to connect:
-#   nodes <- paste("node", 1:5, sep="")
-#   nodePairs <- nodes[sample(length(nodes), 2)]
-#   nodeAttribues and edgeAttributes will each be a simple list of named attributes to create,
-#     each with a random value, for instance
-#          edge.attribute.1 <- 100 * runif(1)   # a numeric attribute
-                                        #          edge.attribute.2 <- LETTERS[sample(1:26, 1)]
+#test_utils.R: tests for the 3 utilitiy functions, using igraph
+library(RUnit)
 library(igraph)
-createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
+#----------------------------------------------------------------------------------------------------
+source("utils.R")
+#----------------------------------------------------------------------------------------------------
+runTests <- function()
 {
-    printf("numberOfNodes: %d ", numberOfNodes)
-    printf("numberOfEdges: %d ", numberOfEdges)
-    printf("nodeAttributeCount: %s", length(nodeAttributes))
-    printf("EdgeAttributeCount: %s", length(edgeAttributes))
+   test_createEmptyTestGraph()
+   test_1NodeTestGraph()
+   test_15NodeTestGraph()
+} # runTests
+#----------------------------------------------------------------------------------------------------
+test_createEmptyTestGraph <- function()
+{
 
-    if (numberOfNodes == 0){
-        return (graph_from_literal())
-        }
+   g <- createTestGraph()        # an empty graph, always a good place to start
+   checkEquals(length(V(g)), 0)
+   checkEquals(length(E(g)), 0)
 
-    if (numberOfNodes == 1){
-        return (graph_from_literal("A"))
-        }
+} # test_createGraphs
+#----------------------------------------------------------------------------------------------------
+test_1NodeTestGraph <- function()
+{
 
-    if (numberOfNodes == 2){
-        return (graph_from_literal("A","B"))
-        }
+   g <- createTestGraph(1)        # 1 node graph
+    checkEquals(length(V(g)), 1)
+    checkEquals(length(E(g)), 0)
 
-    if (numberOfNodes == 3){
-        return (graph_from_literal("A","B","C"))
-        }
+} # test_createGraphs
+#----------------------------------------------------------------------------------------------------
+test_15NodeTestGraph <- function()
+{
 
-#    nodes <- paste("node-",1:numberOfNodes, sep="")
-#    if (numberOfNodes == 5){
-#        b <- graph_from_literal()
-#        V(b)$name <- node5
-#        return (b)
-#    }
+   g <- createTestGraph(15)        # 15 node graph
+    checkEquals(length(V(g)), 15)
+    checkEquals(length(E(g)), 0)
 
-} # createTestGraph
-#------------------------------------------------------------------------------------------------------------------------
+}
+#----------------------------------------------------------------------------------------------------
+
+
