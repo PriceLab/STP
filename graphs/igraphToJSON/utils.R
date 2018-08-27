@@ -1,42 +1,74 @@
-#test_utils.R: tests for the 3 utilitiy functions, using igraph
-library(RUnit)
+# utils.R:  utilitiy functions using igraph
+#------------------------------------------------------------------------------------------------------------------------
+# retun an igraph instance with the specified number of nodes, edges and attributes
+# name nodes in the style "node1", "node2", ...
+# name edges similarly: "edge1", "edge2"
+# create edges by randomly choosing pairs of nodes to connect:
+#   nodes <- paste("node", 1:5, sep="")
+#   nodePairs <- nodes[sample(length(nodes), 2)]
+#   nodeAttribues and edgeAttributes will each be a simple list of named attributes to create,
+#     each with a random value, for instance
+#          edge.attribute.1 <- 100 * runif(1)   # a numeric attribute
+                                        #          edge.attribute.2 <- LETTERS[sample(1:26, 1)]
 library(igraph)
-#----------------------------------------------------------------------------------------------------
-source("utils.R")
-#----------------------------------------------------------------------------------------------------
-runTests <- function()
+#old.createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
+#{
+#    printf("numberOfNodes: %d ", numberOfNodes)
+#    printf("numberOfEdges: %d ", numberOfEdges)
+#    printf("nodeAttributeCount: %s", length(nodeAttributes))
+#    printf("EdgeAttributeCount: %s", length(edgeAttributes))
+
+#    if (numberOfNodes == 0){
+#        return (graph_from_literal())
+#        }
+
+#    if (numberOfNodes == 1){
+#        return (graph_from_literal("A"))
+#        }
+
+#    if (numberOfNodes == 2){
+#        return (graph_from_literal("A","B"))
+#        }
+
+#    if (numberOfNodes == 3){
+#        return (graph_from_literal("A","B","C"))
+#        }
+
+#   nodes <- paste("node-",1:numberOfNodes, sep="")
+#    if (numberOfNodes == 5){
+#        b <- graph_from_literal()
+#        V(b)$name <- node5
+#        return (b)
+#    }
+
+#} # old.createTestGraph
+#------------------------------------------------------------------------------------------------------------------------
+#library(igraph)
+createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
 {
-   test_createEmptyTestGraph()
-   test_1NodeTestGraph()
-   test_15NodeTestGraph()
-} # runTests
-#----------------------------------------------------------------------------------------------------
-test_createEmptyTestGraph <- function()
-{
+    printf("numberOfNodes: %d ", numberOfNodes)
+    printf("numberOfEdges: %d ", numberOfEdges)
+    printf("nodeAttributeCount: %s", length(nodeAttributes))
+    printf("EdgeAttributeCount: %s", length(edgeAttributes))
 
-   g <- createTestGraph()        # an empty graph, always a good place to start
-   checkEquals(length(V(g)), 0)
-   checkEquals(length(E(g)), 0)
+    g <- graph_from_literal()
 
-} # test_createGraphs
-#----------------------------------------------------------------------------------------------------
-test_1NodeTestGraph <- function()
-{
+    if(numberOfNodes == 0){
+       return(g)
+       }
+    #generate node and edge names
+    node.names <- paste("node-", 1:numberOfNodes, sep="")
+    edge.names <- paste("edge-",1:numberOfEdges, sep="")
+    nodePairs <- node.names[sample(length(node.names), 2)]
 
-   g <- createTestGraph(1)        # 1 node graph
-    checkEquals(length(V(g)), 1)
-    checkEquals(length(E(g)), 0)
+    #adds NODES
+    g <- g + vertices(node.names)
 
-} # test_createGraphs
-#----------------------------------------------------------------------------------------------------
-test_15NodeTestGraph <- function()
-{
 
-   g <- createTestGraph(15)        # 15 node graph
-    checkEquals(length(V(g)), 15)
-    checkEquals(length(E(g)), 0)
+    #for loop to create edges
+    for (i in 1:numberOfEdges){
+        nodePairs<- node.names[sample(length(node.names), 2)]
+         g <- g + edge(sample(V(g), numberOfEdges,replace = TRUE))
+     }
 
 }
-#----------------------------------------------------------------------------------------------------
-
-
