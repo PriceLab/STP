@@ -55,20 +55,24 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
 
     if(numberOfNodes == 0){
        return(g)
-       }
+    }
+
     #generate node and edge names
     node.names <- paste("node-", 1:numberOfNodes, sep="")
     edge.names <- paste("edge-",1:numberOfEdges, sep="")
-    nodePairs <- node.names[sample(length(node.names), 2)]
 
     #adds NODES
     g <- g + vertices(node.names)
 
 
-    #for loop to create edges
-    for (i in 1:numberOfEdges){
+                                     #for loop to create edges
+    if (numberOfEdges > 0){
+        for (i in 1:numberOfEdges){
         nodePairs<- node.names[sample(length(node.names), 2)]
-         g <- g + edge(sample(V(g), numberOfEdges,replace = TRUE))
-     }
+        g <- g + edge(sample(V(g), numberOfEdges,replace = TRUE, prob= NULL))
+        }
+        }
+
+    return(g)
 
 }
