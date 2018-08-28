@@ -68,15 +68,10 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
     #for loop to create EDGES
     if (numberOfEdges > 0){
         for (i in 1:numberOfEdges){
-            nodePairs<- node.names[sample(length(node.names), 2)]
             howManyNodes <- length(node.names)
             sampledNodes <- sample(howManyNodes, 2, replace = TRUE, prob= NULL)
             addEdges <- edges(sampledNodes)
-
-        g <- g + addEdges
-
-
-
+            g <- g + addEdges
         }
     }
 
@@ -85,7 +80,8 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
     if (length(nodeAttributes)>0){
         V(g)$nodeAttr <- nodeAttributes
         printf( V(g)$nodeAttr)
-        }
+    }
+
     #edge attr
     if (length(edgeAttributes)>0){
         E(g)$edgeAttr <- edgeAttributes
