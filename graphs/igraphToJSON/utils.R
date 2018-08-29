@@ -33,8 +33,11 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             }  # for i
          } # if
 
-    if (length(nodeAttributes)>0)
-        V(g)$nodeAttr <- nodeAttributes
+    if (length(nodeAttributes)>0){
+        age <- c("20")
+        age <- as.numeric(age)
+        V(g)$age <- age
+    }
 
     if (length(edgeAttributes)>0)
         E(g)$edgeAttr <- edgeAttributes
