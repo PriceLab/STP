@@ -16,7 +16,7 @@ runTests <- function()
 #----------------------------------------------------------------------------------------------------
 test_createEmptyTestGraph <- function()
 {
-   printf("---------------test_createEmptyTestGraph")
+   printf("--- test_createEmptyGraph")
    g <- createTestGraph()        # an empty graph, always a good place to start
    checkEquals(length(V(g)), 0)
    checkEquals(length(E(g)), 0)
@@ -26,7 +26,7 @@ test_createEmptyTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_1NodeTestGraph <- function()
 {
-    printf("---------------test_1NodeTestGraphh")
+     printf("--- test_1NodeTestGraph")
     g <- createTestGraph(1)        # 1 node graph
     checkEquals(length(V(g)), 1)
     checkEquals(length(E(g)), 0)
@@ -35,7 +35,7 @@ test_1NodeTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_15NodeTestGraph <- function()
 {
-    printf("---------------test_15NodeTestGraph")
+    printf("--- test_15NodeTestGraph")
     g <- createTestGraph(15)        # 15 node graph
     checkEquals(length(V(g)), 15)
     checkEquals(length(E(g)), 0)
@@ -44,7 +44,7 @@ test_15NodeTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_4Node2EdgesTestGraph <- function()
 {
-    printf("---------------4Node2EdgesTestGraph")
+    printf("--- 4Node2EdgesTestGraph")
     g <- createTestGraph(4,2)        # 4 node 2 edge graph
     checkEquals(length(V(g)), 4)
     checkEquals(length(E(g)), 2)
@@ -52,7 +52,7 @@ test_4Node2EdgesTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_5Node2EdgesTestGraph_withAttr<- function()
 {
-    printf("---------------5Node2EdgesTestGraph_withAttr")
+    printf("--- 5Node2EdgesTestGraph_withAttr")
     g <- createTestGraph(5,2, c("red", "white", "blue", "yellow", "black"), c("one", "two"))
     checkEquals(length(V(g)), 5)              # 5 nodes, 2edge graph. with attributes
     checkEquals(length(E(g)), 2)
