@@ -63,7 +63,7 @@ test_5Node2EdgesTestGraph_withAttr<- function()
 {
     printf("--- 5Node2EdgesTestGraph_withAttr")
 
-    g <- createTestGraph(5,2, c("red", "white", "blue", "yellow", "black"))
+    g <- createTestGraph(5,2,c("red", "white", "blue", "yellow", "black"))
 
     checkEquals(length(V(g)), 5)              # 5 nodes, 2edge graph. with attributes
     checkEquals(length(E(g)),2)
