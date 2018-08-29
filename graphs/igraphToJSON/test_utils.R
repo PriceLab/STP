@@ -2,7 +2,7 @@
 library(RUnit)
 library(igraph)
 #----------------------------------------------------------------------------------------------------
-source("utils.R")
+source("utils_COPY.R")
 #----------------------------------------------------------------------------------------------------
 runTests <- function()
 {
@@ -11,23 +11,27 @@ runTests <- function()
    test_15NodeTestGraph()
    test_4Node2EdgesTestGraph()
    test_5Node2EdgesTestGraph_withAttr()
+   test_graphWithNodeAttributes()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
 test_createEmptyTestGraph <- function()
 {
-   printf("--- test_createEmptyGraph")
-   g <- createTestGraph()        # an empty graph, always a good place to start
-   checkEquals(length(V(g)), 0)
-   checkEquals(length(E(g)), 0)
+    printf("--- test_createEmptyGraph")
 
+    g <- createTestGraph()        # an empty graph, always a good place to start
+
+    checkEquals(length(V(g)), 0)
+    checkEquals(length(E(g)), 0)
 
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------
 test_1NodeTestGraph <- function()
 {
-     printf("--- test_1NodeTestGraph")
+    printf("--- test_1NodeTestGraph")
+
     g <- createTestGraph(1)        # 1 node graph
+
     checkEquals(length(V(g)), 1)
     checkEquals(length(E(g)), 0)
 
@@ -36,7 +40,9 @@ test_1NodeTestGraph <- function()
 test_15NodeTestGraph <- function()
 {
     printf("--- test_15NodeTestGraph")
+
     g <- createTestGraph(15)        # 15 node graph
+
     checkEquals(length(V(g)), 15)
     checkEquals(length(E(g)), 0)
 
@@ -45,24 +51,31 @@ test_15NodeTestGraph <- function()
 test_4Node2EdgesTestGraph <- function()
 {
     printf("--- 4Node2EdgesTestGraph")
+
     g <- createTestGraph(4,2)        # 4 node 2 edge graph
+
     checkEquals(length(V(g)), 4)
     checkEquals(length(E(g)), 2)
+
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------
 test_5Node2EdgesTestGraph_withAttr<- function()
 {
     printf("--- 5Node2EdgesTestGraph_withAttr")
-    g <- createTestGraph(5,2, c("red", "white", "blue", "yellow", "black"), c("one", "two"))
+
+    g <- createTestGraph(5,2, c("red", "white", "blue", "yellow", "black"))
+
     checkEquals(length(V(g)), 5)              # 5 nodes, 2edge graph. with attributes
-    checkEquals(length(E(g)), 2)
+    checkEquals(length(E(g)),2)
+
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------
-test_graphWithNodeAttributes <- fucntion()
+test_graphWithNodeAttributes <- function()
 {
    printf("--- test_graphWithNodeAttributes")
 
-   g <- createTestGraph(1, 0, nodeAttributes=list(sge="numeric"))
+   g <- createTestGraph(1, 0, nodeAttributes=list(age="numeric"))
+
 
    checkEquals(length(V(g)), 1)
    age.noa <- vertex_attr(g, "age")
