@@ -76,7 +76,6 @@ test_graphWithNodeAttributes <- function()
 
    g <- createTestGraph(1, 0, nodeAttributes=list(age="numeric"))
 
-
    checkEquals(length(V(g)), 1)
    age.noa <- vertex_attr(g, "age")
    checkEquals(length(age.noa), 1)

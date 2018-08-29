@@ -31,7 +31,7 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             addEdges <- edges(sampledNodes)
             g <- g + addEdges
             }  # for i
-    } # if
+        } # if
 
     if (length(nodeAttributes)>0){
         age <- c("20")
