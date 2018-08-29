@@ -37,7 +37,6 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
         l <- length(nodeAttributes)
         num <- round(runif(l,0,99))
         V(g)$age <- num
-
     }
 
     if (length(edgeAttributes)>0)
