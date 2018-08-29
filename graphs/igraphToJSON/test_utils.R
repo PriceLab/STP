@@ -58,5 +58,17 @@ test_5Node2EdgesTestGraph_withAttr<- function()
     checkEquals(length(E(g)), 2)
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------
+test_graphWithNodeAttributes <- fucntion()
+{
+   printf("--- test_graphWithNodeAttributes")
 
+   g <- createTestGraph(1, 0, nodeAttributes=list(sge="numeric"))
+
+   checkEquals(length(V(g)), 1)
+   age.noa <- vertex_attr(g, "age")
+   checkEquals(length(age.noa), 1)
+   checkTrue(is.numeric(age.noa))
+
+} # test_addNodeAttributes
+#----------------------------------------------------------------------------------------------------
 
