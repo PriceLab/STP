@@ -31,13 +31,16 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             addEdges <- edges(sampledNodes)
             g <- g + addEdges
             }  # for i
-         } # if
+        } # if
 
     if (length(nodeAttributes)>0){
-        l <- length(nodeAttributes)
-        num <- round(runif(l,0,99))
-        V(g)$age <- num
-    }
+        if (nodeAttributes[[1]]=="numeric"){
+            l <- length(nodeAttributes)
+            num <- round(runif(l,0,99))
+            V(g)$age <- num
+            } #if nodesAttributes
+        }#if length
+
 
     if (length(edgeAttributes)>0)
         E(g)$edgeAttr <- edgeAttributes
