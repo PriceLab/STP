@@ -12,12 +12,23 @@
                                         #          edge.attribute.2 <- LETTERS[sample(1:26, 1)]
 #------------------------------------------------------------------------------------------------------------------------
 library(igraph)
+#----------------------------------------------------------------------------------------------------
+makeRandomString <- function(length)
+{
+        uppercaseLowercase <- c(letters, LETTERS)
+        randomize <- sample(uppercaseLowercase,length, replace=TRUE)
+        randomString <- paste(randomize, collapse="")
+
+    return(randomString)
+}
+#----------------------------------------------------------------------------------------------------
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
 {
     g <- graph_from_literal()
 
     if(numberOfNodes == 0)
         return(g)
+
 
     node.names <- paste("node-", 1:numberOfNodes, sep="")
 
@@ -35,15 +46,20 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
 
     if (length(nodeAttributes)>0){
         if (nodeAttributes[[1]]=="numeric"){
-            l <- length(nodeAttributes)
-            num <- round(runif(l,0,99))
-            V(g)$age <- num
-            } #if nodesAttributes
-        }#if length
+            noa.length <- length(nodeAttributes)
+            random.num <- round(runif(noa.length,0,99))
+            V(g)$age <- random.num
+        } #if numeric
+        if (nodeAttributes[[1]]=="character"){
+            string.length <- length(nodeAttributes)
+            random.string <- round(runif(string.length,0, 99))
+            noa.string <- makeRandomString(random.string)
+            V(g)$string <- noa.string
+        } #if character
 
-
-    if (length(edgeAttributes)>0)
-        E(g)$edgeAttr <- edgeAttributes
+    }#if length
 
     return(g)
 }
+
+

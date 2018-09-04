@@ -79,8 +79,21 @@ test_graphWithNodeAttributes <- function()
    checkEquals(length(V(g)), 1)
    age.noa <- vertex_attr(g, "age")
    checkEquals(length(age.noa), 1)
+
    checkTrue(is.numeric(age.noa))
 
 } # test_addNodeAttributes
 #----------------------------------------------------------------------------------------------------
+test_charactersAttribute <- function()
+{
+    printf("--- test_charactersAttribute")
+
+    g <- createTestGraph(4, 0, nodeAttributes=list(string="character"))
+
+    checkEquals(length(V(g)), 4)
+    string.noa <- vertex_attr(g, "string")
+    checkEquals(length(string.noa), 4)
+
+} #test_samplingLetters
+
 
