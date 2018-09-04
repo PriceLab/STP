@@ -12,7 +12,6 @@ runTests <- function()
    test_4Node2EdgesTestGraph()
    test_graphWithNodeNumericAttributes()
    test_makeRandom5String()
-   test_makeRandom150String()
    test_charactersAttribute()
    test_randomList()
 
