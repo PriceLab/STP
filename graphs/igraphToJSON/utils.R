@@ -15,9 +15,9 @@ library(igraph)
 #----------------------------------------------------------------------------------------------------
 makeRandomString <- function(length)
 {
-        uppercaseLowercase <- c(letters, LETTERS)
-        randomize <- sample(uppercaseLowercase,length, replace=TRUE)
-        randomString <- paste(randomize, collapse="")
+    uppercaseLowercase <- c(letters, LETTERS)
+    randomize <- sample(uppercaseLowercase,length, replace=TRUE)
+    randomString <- paste(randomize, collapse="")
 
     return(randomString)
 }
