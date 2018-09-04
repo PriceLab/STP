@@ -14,6 +14,7 @@ runTests <- function()
    test_makeRandom5String()
    test_makeRandom150String()
    test_charactersAttribute()
+   test_randomList()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -75,23 +76,17 @@ test_graphWithNodeNumericAttributes <- function()
 
 } # test_addNodeAttributes
 #----------------------------------------------------------------------------------------------------
-test_makeRandom5String <- function()
+test_makeRandomString <- function()
 {
-    printf("--- test_makeRandom5String")
+    printf("--- test_makeRandomString")
 
     random.string <- makeRandomString(5)
     checkEquals(nchar(random.string), 5)
 
-}#test 5 characters
-#----------------------------------------------------------------------------------------------------
-test_makeRandom150String <- function()
-{
-    printf("--- test_makeRandom150String")
-
     random.string_2 <- makeRandomString(150)
     checkEquals(nchar(random.string_2), 150)
 
-}#test 150 characters
+} # test 5 characters
 #----------------------------------------------------------------------------------------------------
 test_charactersAttribute <- function()
 {
@@ -103,6 +98,14 @@ test_charactersAttribute <- function()
     string.noa <- vertex_attr(g, "string")
     checkEquals(length(string.noa), 4)
 
-} #test_samplingLetters
+} # test_samplingLetters
+#----------------------------------------------------------------------------------------------------
+test_randomList <- function()
+{
+    printf("--- test_randomList")
 
+    random.list <- makeRandomStrings(c(2,6,4,1,7))
+    checkEquals(length(random.list), 5)
 
+} # test_makingRandomList
+#----------------------------------------------------------------------------------------------------

@@ -22,6 +22,14 @@ makeRandomString <- function(length)
     return(randomString)
 }
 #----------------------------------------------------------------------------------------------------
+makeRandomStrings <- function(list)
+{
+    createVector <- lapply(list, makeRandomString)
+    createList <- unlist(createVector)
+
+    return(createList)
+}
+#----------------------------------------------------------------------------------------------------
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
 {
     g <- graph_from_literal()
@@ -59,5 +67,5 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
 
     return(g)
 }
-
+#----------------------------------------------------------------------------------------------------
 
