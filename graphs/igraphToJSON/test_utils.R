@@ -79,17 +79,19 @@ test_makeRandom5String <- function()
 {
     printf("--- test_makeRandom5String")
 
-    random.string <- makeRandomString(5) #test 5 characters
+    random.string <- makeRandomString(5)
     checkEquals(nchar(random.string), 5)
-}
+
+}#test 5 characters
 #----------------------------------------------------------------------------------------------------
 test_makeRandom150String <- function()
 {
     printf("--- test_makeRandom150String")
 
-    random.string_2 <- makeRandomString(150) #test 150 characters
+    random.string_2 <- makeRandomString(150)
     checkEquals(nchar(random.string_2), 150)
-}
+
+}#test 150 characters
 #----------------------------------------------------------------------------------------------------
 test_charactersAttribute <- function()
 {
