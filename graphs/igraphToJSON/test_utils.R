@@ -13,7 +13,7 @@ runTests <- function()
    test_graphWithNodeNumericAttributes()
    test_makeRandom5String()
    test_charactersAttribute()
-   test_randomList()
+   test_makeRandomStrings()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -99,12 +99,15 @@ test_charactersAttribute <- function()
 
 } # test_samplingLetters
 #----------------------------------------------------------------------------------------------------
-test_randomList <- function()
+test_makeRandomStrings <- function()
 {
-    printf("--- test_randomList")
+    printf("--- test_makeRandomStrings")
 
-    random.list <- makeRandomStrings(c(2,6,4,1,7))
-    checkEquals(length(random.list), 5)
+    requested.lengths <- c(2,6,4,1,7)
+    random.strings <- makeRandomStrings(requested.lengths)
+    checkEquals(length(random.strings), 5)
+    actual.lengths <- unlist(lapply(random.strings, nchar))
+    checkEquals(acutal.lengths, requested.lengths)
 
-} # test_makingRandomList
+} # test_makeRandomStrings
 #----------------------------------------------------------------------------------------------------
