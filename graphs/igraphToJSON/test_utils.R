@@ -10,8 +10,10 @@ runTests <- function()
    test_1NodeTestGraph()
    test_15NodeTestGraph()
    test_4Node2EdgesTestGraph()
-   test_5Node2EdgesTestGraph_withAttr()
-   test_graphWithNodeAttributes()
+   test_graphWithNodeNumericAttributes()
+   test_makeRandom5String()
+   test_makeRandom150String()
+   test_charactersAttribute()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -50,7 +52,7 @@ test_15NodeTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_4Node2EdgesTestGraph <- function()
 {
-    printf("--- 4Node2EdgesTestGraph")
+    printf("--- test_4Node2EdgesTestGraph")
 
     g <- createTestGraph(4,2)        # 4 node 2 edge graph
 
@@ -59,20 +61,9 @@ test_4Node2EdgesTestGraph <- function()
 
 } # test_createGraphs
 #----------------------------------------------------------------------------------------------------
-test_5Node2EdgesTestGraph_withAttr<- function()
+test_graphWithNodeNumericAttributes <- function()
 {
-    printf("--- 5Node2EdgesTestGraph_withAttr")
-
-    g <- createTestGraph(5,2,c("red", "white", "blue", "yellow", "black"))
-
-    checkEquals(length(V(g)), 5)              # 5 nodes, 2edge graph. with attributes
-    checkEquals(length(E(g)),2)
-
-} # test_createGraphs
-#----------------------------------------------------------------------------------------------------
-test_graphWithNodeAttributes <- function()
-{
-   printf("--- test_graphWithNodeAttributes")
+   printf("--- test_graphWithNodeNumericAttributes")
 
    g <- createTestGraph(1, 0, nodeAttributes=list(age="numeric"))
 
@@ -83,6 +74,22 @@ test_graphWithNodeAttributes <- function()
    checkTrue(is.numeric(age.noa))
 
 } # test_addNodeAttributes
+#----------------------------------------------------------------------------------------------------
+test_makeRandom5String <- function()
+{
+    printf("--- test_makeRandom5String")
+
+    random.string <- makeRandomString(5) #test 5 characters
+    checkEquals(nchar(random.string), 5)
+}
+#----------------------------------------------------------------------------------------------------
+test_makeRandom150String <- function()
+{
+    printf("--- test_makeRandom150String")
+
+    random.string_2 <- makeRandomString(150) #test 150 characters
+    checkEquals(nchar(random.string_2), 150)
+}
 #----------------------------------------------------------------------------------------------------
 test_charactersAttribute <- function()
 {

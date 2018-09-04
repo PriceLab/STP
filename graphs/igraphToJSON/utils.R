@@ -29,7 +29,6 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
     if(numberOfNodes == 0)
         return(g)
 
-
     node.names <- paste("node-", 1:numberOfNodes, sep="")
 
     g <- g + vertices(node.names)
@@ -49,15 +48,14 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             noa.length <- length(nodeAttributes)
             random.num <- round(runif(noa.length,0,99))
             V(g)$age <- random.num
-        } #if numeric
+            } # if numeric
         if (nodeAttributes[[1]]=="character"){
             string.length <- length(nodeAttributes)
             random.string <- round(runif(string.length,0, 99))
             noa.string <- makeRandomString(random.string)
             V(g)$string <- noa.string
-        } #if character
-
-    }#if length
+            } # if character
+    }# if
 
     return(g)
 }
