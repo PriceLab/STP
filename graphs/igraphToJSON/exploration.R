@@ -11,7 +11,8 @@ timesTen <- function(list)
     vector <- unlist(lapply(list, doIT))
 
     return(vector)
-}
+
+} # timesTen
 #----------------------------------------------------------------------------------------------------
 test_timesTen <- function()
 {
@@ -21,5 +22,6 @@ test_timesTen <- function()
     result <- timesTen(1:5)
 
     checkEquals(result, expected.results)
-} # tests times 10
+
+} # test_timesTen
 #----------------------------------------------------------------------------------------------------
