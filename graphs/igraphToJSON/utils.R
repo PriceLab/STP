@@ -16,18 +16,18 @@ library(igraph)
 makeRandomString <- function(length)
 {
     uppercaseLowercase <- c(letters, LETTERS)
-    randomize <- sample(uppercaseLowercase,length, replace=TRUE)
-    randomString <- paste(randomize, collapse="")
+    random <- sample(uppercaseLowercase,length, replace=TRUE)
+    randomString <- paste(random, collapse="")
 
     return(randomString)
 }
 #----------------------------------------------------------------------------------------------------
 makeRandomStrings <- function(list)
 {
-    createVector <- lapply(list, makeRandomString)
-    createList <- unlist(createVector)
+    vector <- lapply(list, makeRandomString)
+    listOfStrings <- unlist(vector)
 
-    return(createList)
+    return(listOfStrings)
 }
 #----------------------------------------------------------------------------------------------------
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
