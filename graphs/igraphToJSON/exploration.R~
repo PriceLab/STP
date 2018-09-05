@@ -1,7 +1,0 @@
-function timesTwo(listOfNums)
-{
-    function doIT(x){
-        return(x**2)
-    }
-    unlist(lapply(listOfNums, doIT))
-}
