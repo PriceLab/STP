@@ -17,13 +17,21 @@ makeRandomString <- function(length)
 {
     uppercaseLowercase <- c(letters, LETTERS)
     random <- sample(uppercaseLowercase,length, replace=TRUE)
-    randomString <- paste(random, collapse="")
 
-    return(randomString)
+    return(random)
 }
+
 #----------------------------------------------------------------------------------------------------
 makeRandomStrings <- function(list)
 {
+    makeRandomString <- function(length)
+    {
+        uppercaseLowercase <- c(letters, LETTERS)
+        random <- sample(uppercaseLowercase,length, replace=TRUE)
+        randomString <- paste(random, collapse="")
+        return(randomString)
+        }
+
     vector <- lapply(list, makeRandomString)
     listOfStrings <- unlist(vector)
 

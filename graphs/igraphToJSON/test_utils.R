@@ -11,7 +11,6 @@ runTests <- function()
    test_15NodeTestGraph()
    test_4Node2EdgesTestGraph()
    test_graphWithNodeNumericAttributes()
-   test_makeRandom5String()
    test_charactersAttribute()
    test_makeRandomStrings()
 
@@ -19,7 +18,7 @@ runTests <- function()
 #----------------------------------------------------------------------------------------------------
 test_createEmptyTestGraph <- function()
 {
-    printf("--- test_createEmptyGraph")
+    print("--- test_createEmptyGraph")
 
     g <- createTestGraph()        # an empty graph, always a good place to start
 
@@ -30,7 +29,7 @@ test_createEmptyTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_1NodeTestGraph <- function()
 {
-    printf("--- test_1NodeTestGraph")
+    print("--- test_1NodeTestGraph")
 
     g <- createTestGraph(1)        # 1 node graph
 
@@ -41,7 +40,7 @@ test_1NodeTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_15NodeTestGraph <- function()
 {
-    printf("--- test_15NodeTestGraph")
+    print("--- test_15NodeTestGraph")
 
     g <- createTestGraph(15)        # 15 node graph
 
@@ -52,7 +51,7 @@ test_15NodeTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_4Node2EdgesTestGraph <- function()
 {
-    printf("--- test_4Node2EdgesTestGraph")
+    print("--- test_4Node2EdgesTestGraph")
 
     g <- createTestGraph(4,2)        # 4 node 2 edge graph
 
@@ -63,7 +62,7 @@ test_4Node2EdgesTestGraph <- function()
 #----------------------------------------------------------------------------------------------------
 test_graphWithNodeNumericAttributes <- function()
 {
-   printf("--- test_graphWithNodeNumericAttributes")
+   print("--- test_graphWithNodeNumericAttributes")
 
    g <- createTestGraph(1, 0, nodeAttributes=list(age="numeric"))
 
@@ -75,21 +74,9 @@ test_graphWithNodeNumericAttributes <- function()
 
 } # test_addNodeAttributes
 #----------------------------------------------------------------------------------------------------
-test_makeRandomString <- function()
-{
-    printf("--- test_makeRandomString")
-
-    random.string <- makeRandomString(5)
-    checkEquals(nchar(random.string), 5)
-
-    random.string_2 <- makeRandomString(150)
-    checkEquals(nchar(random.string_2), 150)
-
-} # test 5 characters
-#----------------------------------------------------------------------------------------------------
 test_charactersAttribute <- function()
 {
-    printf("--- test_charactersAttribute")
+    print("--- test_charactersAttribute")
 
     g <- createTestGraph(4, 0, nodeAttributes=list(string="character"))
 
@@ -101,13 +88,13 @@ test_charactersAttribute <- function()
 #----------------------------------------------------------------------------------------------------
 test_makeRandomStrings <- function()
 {
-    printf("--- test_makeRandomStrings")
+    print("--- test_makeRandomStrings")
 
     requested.lengths <- c(2,6,4,1,7)
     random.strings <- makeRandomStrings(requested.lengths)
     checkEquals(length(random.strings), 5)
     actual.lengths <- unlist(lapply(random.strings, nchar))
-    checkEquals(acutal.lengths, requested.lengths)
+    checkEquals(actual.lengths, requested.lengths)
 
 } # test_makeRandomStrings
 #----------------------------------------------------------------------------------------------------
