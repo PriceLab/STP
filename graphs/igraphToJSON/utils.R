@@ -19,6 +19,7 @@ randomString <- function(length)
     random <- sample(uppercaseLowercase,length, replace=TRUE)
 
     return(random)
+
 } # makeRandomString
 #----------------------------------------------------------------------------------------------------
 makeRandomString <- function(list)
@@ -35,6 +36,7 @@ makeRandomString <- function(list)
     listOfStrings <- unlist(vector)
 
     return(listOfStrings)
+
 } # makeRandomString
 #----------------------------------------------------------------------------------------------------
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
