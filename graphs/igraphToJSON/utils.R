@@ -13,7 +13,7 @@
 #------------------------------------------------------------------------------------------------------------------------
 library(igraph)
 #----------------------------------------------------------------------------------------------------
-makeRandomString <- function(length)
+randomString <- function(length)
 {
     uppercaseLowercase <- c(letters, LETTERS)
     random <- sample(uppercaseLowercase,length, replace=TRUE)
@@ -21,9 +21,9 @@ makeRandomString <- function(length)
     return(random)
 } # makeRandomString
 #----------------------------------------------------------------------------------------------------
-makeRandomStrings <- function(list)
+makeRandomString <- function(list)
 {
-    makeRandomString <- function(length)
+    randomString <- function(length)
     {
         uppercaseLowercase <- c(letters, LETTERS)
         random <- sample(uppercaseLowercase,length, replace=TRUE)
@@ -31,11 +31,11 @@ makeRandomStrings <- function(list)
         return(randomString)
         }
 
-    vector <- lapply(list, makeRandomString)
+    vector <- lapply(list, randomString)
     listOfStrings <- unlist(vector)
 
     return(listOfStrings)
-} # makeRandomStrings
+} # makeRandomString
 #----------------------------------------------------------------------------------------------------
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
 {
