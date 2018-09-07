@@ -73,6 +73,7 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
     }# if
 
     return(g)
+
 } # createTestGraph
 #----------------------------------------------------------------------------------------------------
 
