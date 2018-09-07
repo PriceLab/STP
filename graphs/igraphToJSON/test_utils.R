@@ -12,7 +12,7 @@ runTests <- function()
    test_4Node2EdgesTestGraph()
    test_graphWithNodeNumericAttributes()
    test_charactersAttribute()
-   test_makeRandomStrings()
+   test_makeRandomString()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -86,9 +86,9 @@ test_charactersAttribute <- function()
 
 } # test_samplingLetters
 #----------------------------------------------------------------------------------------------------
-test_makeRandomStrings <- function()
+test_makeRandomString <- function()
 {
-    print("--- test_makeRandomStrings")
+    print("--- test_makeRandomString")
 
     requested.lengths <- c(2,6,4,1,7)
     random.strings <- makeRandomStrings(requested.lengths)
@@ -96,5 +96,5 @@ test_makeRandomStrings <- function()
     actual.lengths <- unlist(lapply(random.strings, nchar))
     checkEquals(actual.lengths, requested.lengths)
 
-} # test_makeRandomStrings
+} # test_makeRandomString
 #----------------------------------------------------------------------------------------------------
