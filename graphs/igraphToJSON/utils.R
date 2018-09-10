@@ -13,15 +13,6 @@
 #------------------------------------------------------------------------------------------------------------------------
 library(igraph)
 #----------------------------------------------------------------------------------------------------
-randomString <- function(length)
-{
-    uppercaseLowercase <- c(letters, LETTERS)
-    random <- sample(uppercaseLowercase,length, replace=TRUE)
-
-    return(random)
-
-} # makeRandomString
-#----------------------------------------------------------------------------------------------------
 makeRandomString <- function(list)
 {
     randomString <- function(length)
