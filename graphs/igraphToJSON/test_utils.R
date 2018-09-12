@@ -13,6 +13,8 @@ runTests <- function()
    test_graphWithNodeNumericAttributes()
    test_charactersAttribute()
    test_makeRandomString()
+   test_logicalAttribute()
+   test_randomLogicals()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -97,4 +99,23 @@ test_makeRandomString <- function()
     checkEquals(actual.lengths, requested.lengths)
 
 } # test_makeRandomString
+#----------------------------------------------------------------------------------------------------
+test_logicalAttribute <- function()
+{
+    print("--- test_logicalAttribute")
+
+    g <- createTestGraph(4, 0, nodeAttributes=list(logical="logical"))
+
+    checkEquals(length(V(g)), 4)
+    logical.noa <- vertex_attr(g, "logical")
+    checkEquals(length(logical.noa), 4)
+
+} # test_logicalAttribute
+#----------------------------------------------------------------------------------------------------
+test_randomLogicals <- function()
+{
+    print("--- test_randomLogicals")
+    randoms <- generateRandomLogicals(50)
+    table(randoms)
+} # test_randomLogicals
 #----------------------------------------------------------------------------------------------------

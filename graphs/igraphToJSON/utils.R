@@ -30,6 +30,14 @@ makeRandomString <- function(list)
 
 } # makeRandomString
 #----------------------------------------------------------------------------------------------------
+generateRandomLogicals <- function(amount)
+{
+    x <- round(runif(amount,0,1))
+    x.TorF <- as.logical(x)
+    return(x.TorF)
+
+} # generateRandomLogicals
+#----------------------------------------------------------------------------------------------------
 createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
 {
     g <- graph_from_literal()
@@ -63,6 +71,15 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             noa.string <- makeRandomString(random.string)
             V(g)$string <- noa.string
             } # if character
+        if (nodeAttributes[[1]]=="logical"){
+            node.length <- length(nodeAttributes)
+            x <- round(runif(node.length,0,1))
+            x.TorF <- as.logical(x)
+            V(g)$logical <- x.TorF
+            } # if logical
+
+
+
     }# if
 
     return(g)
