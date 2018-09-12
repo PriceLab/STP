@@ -117,5 +117,6 @@ test_randomLogicals <- function()
     print("--- test_randomLogicals")
     randoms <- generateRandomLogicals(50)
     table(randoms)
+
 } # test_randomLogicals
 #----------------------------------------------------------------------------------------------------
