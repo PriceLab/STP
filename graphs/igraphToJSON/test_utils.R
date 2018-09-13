@@ -1,7 +1,6 @@
 #test_utils.R: tests for the 3 utilitiy functions, using igraph
 library(RUnit)
 library(igraph)
-library(MonteCarlo)
 #----------------------------------------------------------------------------------------------------
 source("utils.R")
 #----------------------------------------------------------------------------------------------------
@@ -117,8 +116,10 @@ test_randomLogicals <- function()
 {
     print("--- test_randomLogicals")
     set.seed(29)
-    randoms <- generateRandomLogicals(50)
-    table(randoms)
+    random.logical <- generateRandomLogicals(50)
+    true.elements <- which(random.logical)
+    checkTrue(length(true.elements) > 20)
+    checkTrue(length(true.elements) < 30)
 
 } # test_randomLogicals
 #----------------------------------------------------------------------------------------------------
