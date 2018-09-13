@@ -1,10 +1,9 @@
 	The second chapter of the book explores the logics behind
-morse code and how it can be translated. Morse code is binary, meaning
-it two by two. Which makes sense considering the fact that morse code
+morse code and how it can be translated. Morse code is binary, meaning two by two. Which makes sense considering the fact that morse code
 is consistent of only two things: dots and dashes. Each letter in the
 alphabet has its
-own unique individual pattern of dots and dashes. As a language using
-only dots and dashes, darkness and light, was foreign to humans before
+own unique pattern of dots and dashes. As a language using
+only dots and dashes and darkness and light, which was foreign to humans before
 its creation, a dictionary and table had to be created for its
 translation.
 	One thing this chapter speaks on is not only the creation of
@@ -13,7 +12,7 @@ it. This reminds me of code- not only were coding languages created,
 but there had to be a way to translate it so users can learn and use
 the coding language. Morse code is very much more simple than any
 coding language-only using dots and dashes- but the idea behind
-creating  not only tha language but its translation is very much
+creating  not only the language but its translation is very much
 similar.
 	With morse code, every letter has its own unique pattern of
 dots and dashes. The book says how the best way to learn the dots
@@ -21,7 +20,9 @@ and dashes and read them as letters is to learn the table dictionary
 created to translate the patterns into the letter. An example of this
 is the fact that the letter "e" starts with a dot and "t" starts with
 a dash. From there, we see what the next pattern is- if its another
-dot after the first dot, its an "i"; if its a dash, an "a", etc. This
+dot after the first dot, its an "i"; if its a dash after the first
+dot, an "a"; if its a dash after the first dash, its a "m"; if its a
+dot after the first dash, its a "n"; and so on. This
 is a good way to memorize and translate the letters from morse to
 alphabets as you use a table method of translation rather than
 memorizing every pattern to its letter.
