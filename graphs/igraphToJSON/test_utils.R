@@ -128,12 +128,12 @@ test_randomLogicals_monteCarlo <- function()
     print("--- test_randomLogicals_monteCarlo")
     for (i in 1:10){
         logical_vector <- list()
-        set.seed(29)
         random.logical <- generateRandomLogicals(200)
         logical_vector<- length(which(random.logical))
-        print(logical_vector)
-    }
+        } # for i
+
     average_results <- mean(logical_vector)
     print(average_results)
-}
 
+} # test_randomLogicals_montecarlo
+#----------------------------------------------------------------------------------------------------
