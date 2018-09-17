@@ -115,6 +115,7 @@ test_logicalAttribute <- function()
 test_randomLogicals <- function()
 {
     print("--- test_randomLogicals")
+
     set.seed(29)
     random.logical <- generateRandomLogicals(50)
     true.elements <- which(random.logical)
@@ -126,6 +127,7 @@ test_randomLogicals <- function()
 test_randomLogicals_monteCarlo <- function()
 {
     print("--- test_randomLogicals_monteCarlo")
+
     for (i in 1:10){
         logical_vector <- list()
         random.logical <- generateRandomLogicals(200)
