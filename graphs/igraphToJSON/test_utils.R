@@ -15,6 +15,7 @@ runTests <- function()
    test_makeRandomString()
    test_logicalAttribute()
    test_randomLogicals()
+   test_randomLogicals_monteCarlo()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
