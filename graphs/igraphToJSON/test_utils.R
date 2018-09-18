@@ -120,7 +120,7 @@ test_randomLogicals <- function()
     set.seed(29)
     random.logical <- generateRandomLogicals(50)
     true.elements <- which(random.logical)
-    checkTrue(length(true.elements) > 20)
+    checkTrue(length(true.elements) >  20)
     checkTrue(length(true.elements) < 30)
 
 } # test_randomLogicals
@@ -129,14 +129,18 @@ test_randomLogicals_monteCarlo <- function()
 {
     print("--- test_randomLogicals_monteCarlo")
 
-    for (i in 1:10){
-        logical_vector <- list()
+    max.repititions <- 10
+    results <- vector(mode="numeric", length= max.repititions)
+    set.seed(67)
+    for (i in 1:max.repititions){
         random.logical <- generateRandomLogicals(200)
-        logical_vector<- length(which(random.logical))
+        results[i] <- mean(round(runif(n=200, min=1, max=200)))
         } # for i
 
-    average_results <- mean(logical_vector)
-    print(average_results)
+    average_results <- mean(results)
+
+    checkTrue(average_results > 50)
+    checkTrue(average_results < 50)
 
 } # test_randomLogicals_montecarlo
 #----------------------------------------------------------------------------------------------------
