@@ -1,0 +1,38 @@
+Chapter 3 of the book Code, by Charles Petzold, is a little different
+from the previous two- it delves into the creation of the braille
+language system, its usage, and explains how it is translated for
+use. Not only is braille a language thats more commonly used for the
+deaf and blind, it is also another man-made language that utalizes
+binary patterns, only using raised and flat dots.
+
+Braille came from an unexpected source; Charles Barbier, who was a
+captain of a french army. He devised what was called "night writing"
+which was a form of communication between soldiers in the dark while
+on missions. Letters and messages were read by raised dots on paper
+that could be read with the fingers. However, as it was in the early
+stages of its creation, the language  was complicated and
+complex. Barbier's version of the language would devise patterns of
+raised dots and dashes that corresponded to sound, which would
+sometimes mean multiple codes for a single word. Years later, a blind
+man named Louis Braille adopted this language and worked years and
+years on it to make it more easy to comprehend and learn which is what
+we now know as braille.
+
+Every letter, numbers, and some punctuation marks can be translated
+back and to braille with dots- raised and flat. The way braille can be
+read is by running one's finger over the dots. Each character has its
+own unique pattern. With each character having a set of 6 dots, the
+pattern of which dot being raised or flat is what determines the
+character.
+
+The concept I took away from this chapter was the fact that
+braille took 2 different people from different time zones to really
+accomplish and perfect the braille language before it became
+popularized for public use. This reminds me of computational code in
+the sense that sometimes we can go back to programs created and
+improve it, add to it, completely change it, or make it better. Louis
+Braille adopted a complex and hard to learn language and changed it so
+it can be useful to his lifestyle and his comprehension levels and it
+ended up becoming universally known. The lesson learned is that the
+first draft of a language, project, or even a program may not always
+be the best version of it and there is always room for improvement.
