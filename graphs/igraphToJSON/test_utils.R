@@ -140,7 +140,7 @@ test_randomLogicals_monteCarlo <- function()
 
     average_results <- mean(results)
 
-    checkTrue(average_results < 100)
+    checkTrue(average_results < 110)
     checkTrue(average_results > 90)
 
 } # test_randomLogicals_montecarlo
