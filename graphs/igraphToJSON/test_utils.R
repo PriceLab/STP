@@ -94,7 +94,7 @@ test_makeRandomString <- function()
     print("--- test_makeRandomString")
 
     requested.lengths <- c(2,6,4,1,7)
-    random.strings <- makeRandomStrings(requested.lengths)
+    random.strings <- makeRandomString(requested.lengths)
     checkEquals(length(random.strings), 5)
     actual.lengths <- unlist(lapply(random.strings, nchar))
     checkEquals(actual.lengths, requested.lengths)
@@ -132,6 +132,7 @@ test_randomLogicals_monteCarlo <- function()
     max.repititions <- 10
     results <- vector(mode="numeric", length= max.repititions)
     set.seed(67)
+
     for (i in 1:max.repititions){
         random.logical <- generateRandomLogicals(200)
         results[i] <- mean(round(runif(n=200, min=1, max=200)))
@@ -139,8 +140,8 @@ test_randomLogicals_monteCarlo <- function()
 
     average_results <- mean(results)
 
-    checkTrue(average_results > 50)
-    checkTrue(average_results < 50)
+    checkTrue(average_results < 100)
+    checkTrue(average_results > 90)
 
 } # test_randomLogicals_montecarlo
 #----------------------------------------------------------------------------------------------------
