@@ -49,6 +49,27 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
 
     g <- g + vertices(node.names)
 
+    for(i in seq_len(length(nodeAttributes))){
+        noa.name <- names(nodeAttributes)[i]
+        noa.type <- nodeAttributes[[i]]
+
+        if(noa.type == "logical"){
+            noa.values <- generateRandomLogicals(numberOfNodes)
+            g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.values)
+            } # if logical
+        if(noa.type == "character"){
+            random.string <- round(runif(length(nodeAttributes),0,99))
+            noa.string <- makeRandomString(random.string)
+            g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.string)
+            } # if character
+        if(noa.type == "numeric"){
+            noa.length <- length(nodeAttributes)
+            random.num <- round(runif(noa.length,0,99))
+            g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), random.num)
+            } # if numeric
+        } # for
+
+
     if (numberOfEdges > 0){
         edge.names <- paste("edge-",1:numberOfEdges, sep="")
         for (i in 1:numberOfEdges){
@@ -56,33 +77,10 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             sampledNodes <- sample(howManyNodes, 2, replace = TRUE, prob= NULL)
             addEdges <- edges(sampledNodes)
             g <- g + addEdges
-            }  # for i
-        } # if
+            } # for i
+     } # if
 
-    if (length(nodeAttributes)>0){
-        if (nodeAttributes[[1]]=="numeric"){
-            noa.length <- length(nodeAttributes)
-            random.num <- round(runif(noa.length,0,99))
-            V(g)$age <- random.num
-            } # if numeric
-        if (nodeAttributes[[1]]=="character"){
-            string.length <- length(nodeAttributes)
-            random.string <- round(runif(string.length,0, 99))
-            noa.string <- makeRandomString(random.string)
-            V(g)$string <- noa.string
-            } # if character
-        if (nodeAttributes[[1]]=="logical"){
-            node.length <- length(nodeAttributes)
-            x <- round(runif(node.length,0,1))
-            x.TorF <- as.logical(x)
-            V(g)$logical <- x.TorF
-            } # if logical
-
-
-
-    }# if
-
-    return(g)
+     return(g)
 
 } # createTestGraph
 #----------------------------------------------------------------------------------------------------
