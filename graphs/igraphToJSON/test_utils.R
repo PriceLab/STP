@@ -138,10 +138,8 @@ test_logicalAttribute <- function()
     print("--- test_logicalAttribute")
 
     g <- createTestGraph(4, 0, nodeAttributes=list(logical="logical"))
-
     checkEquals(length(V(g)), 4)
     logical.noa <- vertex_attr(g, "logical")
     checkEquals(length(logical.noa), 4)
-
 } # test_logicalAttribute
 #----------------------------------------------------------------------------------------------------

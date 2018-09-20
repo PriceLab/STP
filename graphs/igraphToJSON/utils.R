@@ -69,7 +69,6 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             } # if numeric
         } # for
 
-
     if (numberOfEdges > 0){
         edge.names <- paste("edge-",1:numberOfEdges, sep="")
         for (i in 1:numberOfEdges){
