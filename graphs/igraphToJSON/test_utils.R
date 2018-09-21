@@ -152,9 +152,12 @@ test_edge_logicalAttribute <- function()
     print("--- test_edge_logicalAttribute")
 
     g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(TF="logical"))
+
     checkEquals(length(E(g)), 4)
     logical.edge <- edge_attr(g, "TF")
     checkEquals(length(logical.edge), 4)
+
+    checkTrue(is.logical(logical.edge))
 
 } # test_edge_logicalAttribute
 #----------------------------------------------------------------------------------------------------
@@ -163,9 +166,12 @@ test_edge_characterAttribute <- function()
     print("--- test_edge_characterAttribute")
 
     g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(letters="character"))
+
     checkEquals(length(E(g)), 4)
-    logical.edge <- edge_attr(g, "letters")
-    checkEquals(length(logical.edge), 4)
+    character.edge <- edge_attr(g, "letters")
+    checkEquals(length(character.edge), 4)
+
+    checkTrue(is.character(character.edge))
 
 } # test_edge_characterAttribute
 #----------------------------------------------------------------------------------------------------
@@ -174,9 +180,12 @@ test_edge_numericAttribute <- function()
     print("--- test_edge_numericAttribute")
 
     g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(numbers="numeric"))
+
     checkEquals(length(E(g)), 4)
-    logical.edge <- edge_attr(g, "numbers")
-    checkEquals(length(logical.edge), 4)
+    num.edge <- edge_attr(g, "numbers")
+    checkEquals(length(num.edge), 4)
+
+    checkTrue(is.numeric(num.edge))
 
 } # test_edge_characterAttribute
 #----------------------------------------------------------------------------------------------------

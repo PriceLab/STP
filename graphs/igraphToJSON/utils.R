@@ -89,8 +89,8 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             } # if logical
         if(edge.type == "character"){
             random.edge <- round(runif(length(edgeAttributes),0,99))
-            noa.string <- makeRandomString(random.edge)
-            g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), random.edge)
+            edge.string <- makeRandomString(random.edge)
+            g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.string)
             } # if character
         if(edge.type == "numeric"){
             edge.length <- length(edgeAttributes)
