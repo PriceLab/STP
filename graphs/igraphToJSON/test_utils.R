@@ -16,6 +16,9 @@ runTests <- function()
    test_randomLogicals()
    test_randomLogicals_monteCarlo()
    test_logicalAttribute()
+   test_edge_numericAttribute()
+   test_edge_characterAttribute()
+   test_edge_logicalAttribute()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -141,5 +144,39 @@ test_logicalAttribute <- function()
     checkEquals(length(V(g)), 4)
     logical.noa <- vertex_attr(g, "logical")
     checkEquals(length(logical.noa), 4)
+
 } # test_logicalAttribute
+#----------------------------------------------------------------------------------------------------
+test_edge_logicalAttribute <- function()
+{
+    print("--- test_edge_logicalAttribute")
+
+    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(TF="logical"))
+    checkEquals(length(E(g)), 4)
+    logical.edge <- edge_attr(g, "TF")
+    checkEquals(length(logical.edge), 4)
+
+} # test_edge_logicalAttribute
+#----------------------------------------------------------------------------------------------------
+test_edge_characterAttribute <- function()
+{
+    print("--- test_edge_characterAttribute")
+
+    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(letters="character"))
+    checkEquals(length(E(g)), 4)
+    logical.edge <- edge_attr(g, "letters")
+    checkEquals(length(logical.edge), 4)
+
+} # test_edge_characterAttribute
+#----------------------------------------------------------------------------------------------------
+test_edge_numericAttribute <- function()
+{
+    print("--- test_edge_numericAttribute")
+
+    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(numbers="numeric"))
+    checkEquals(length(E(g)), 4)
+    logical.edge <- edge_attr(g, "numbers")
+    checkEquals(length(logical.edge), 4)
+
+} # test_edge_characterAttribute
 #----------------------------------------------------------------------------------------------------

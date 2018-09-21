@@ -67,20 +67,40 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             random.num <- round(runif(noa.length,0,99))
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), random.num)
             } # if numeric
-        } # for
+         } # for
 
-    if (numberOfEdges > 0){
-        edge.names <- paste("edge-",1:numberOfEdges, sep="")
-        for (i in 1:numberOfEdges){
+    edge.names <- paste("edge-",1:numberOfEdges, sep="")
+
+    for (i in seq_len(numberOfEdges)){
             howManyNodes <- length(node.names)
             sampledNodes <- sample(howManyNodes, 2, replace = TRUE, prob= NULL)
             addEdges <- edges(sampledNodes)
             g <- g + addEdges
+            g <- set_edge_attr(g, "name", seq_len(numberOfEdges), edge.names)
             } # for i
-     } # if
 
-     return(g)
+    for (i in seq_len(length(edgeAttributes))){
+          edge.name <- names(edgeAttributes)[i]
+          edge.type <- edgeAttributes[[i]]
 
-} # createTestGraph
+        if(edge.type == "logical"){
+            edge.values <- generateRandomLogicals(numberOfEdges)
+            g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.values)
+            } # if logical
+        if(edge.type == "character"){
+            random.edge <- round(runif(length(edgeAttributes),0,99))
+            noa.string <- makeRandomString(random.edge)
+            g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), random.edge)
+            } # if character
+        if(edge.type == "numeric"){
+            edge.length <- length(edgeAttributes)
+            random.edge.num <- round(runif(edge.length,0,99))
+            g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), random.edge.num)
+            } # if numeric
+          }
+
+    return(g)
+
+}# createTestGraph
 #----------------------------------------------------------------------------------------------------
 
