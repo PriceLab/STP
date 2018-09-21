@@ -63,7 +63,7 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.string)
             } # if character
         if(noa.type == "numeric"){
-            noa.length <- length(nodeAttributes)
+            noa.length <- length(numberOfNodes)
             random.num <- round(runif(noa.length,0,99))
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), random.num)
             } # if numeric
@@ -93,11 +93,11 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.string)
             } # if character
         if(edge.type == "numeric"){
-            edge.length <- length(edgeAttributes)
+            edge.length <- length(numberOfEdges)
             random.edge.num <- round(runif(edge.length,0,99))
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), random.edge.num)
             } # if numeric
-          }
+         } # for
 
     return(g)
 
