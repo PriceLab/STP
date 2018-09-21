@@ -1,0 +1,28 @@
+This chapter of the book delves into a different
+topic-flashlights. The author explains how understanding a few
+concepts of the anatomy of a flashlight will help with understanding
+how it's used inside computers. The chapter goes semi-deep into the topic of
+basic chemistry so we can grasp a greater understanding. Atoms,
+neutrons, and electrons make up a cell and every single part of the
+element is necessary for it to work. If there was a slight change
+in something just as little as an extra proton, the element
+would be  different, function different, and might even have a
+different state of being.
+
+An important concept to grasp from the anatomy of an atom is the
+negative and positive charges. Atoms are made of electrons,
+which are negative, and protons, which are positive. A battery has the
+same concept. No matter the size, each battery has a positive and
+negative charge and its important to align negative-to-positive and
+positive-to-negative in order for the appliance using the battery to
+work. In these cases, opposites attract. Positive only works when
+paired with negative and vice versa.
+
+Something this chapter talks about that I think can be related back to
+computational code is precision. While the focus on this chapter
+is the anatomy of a lightbulb and how it functions, the chapter goes
+into detail how just the misplacement of one single wire can cause the
+whole lightbulb not to work even if everything is perfectly in
+place. This relates to code in the sense that you can have a perfectly
+working project but one single character or letter out-of-place can
+cause the code to malfunction or not work at all.
