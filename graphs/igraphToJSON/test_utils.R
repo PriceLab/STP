@@ -211,7 +211,8 @@ test_edge_threeTypeAttribute <- function()
 {
     print("--- test_edge_threeTypeAttribute")
 
-    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(numbers="numeric", age="character",TF="logical"))
+    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"),
+                         edgeAttributes=list(numbers="numeric", age="character",TF="logical"))
 
     checkEquals(length(E(g)), 4)
     num.edge <- edge_attr(g, "numbers")
