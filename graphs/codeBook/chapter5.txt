@@ -1,0 +1,23 @@
+This chapter of the book talks more on the topic of circuits and
+connections. One thing the chapter mentions is common, which is when
+two circular circuits still operate independantly but are joined like
+siamese twins. When using this type of circuit with lightbulbs, a
+person in the house next door can control your light switch with
+theirs as they are now joined. Something new this chapter also talks about
+is the idea of earth as a conductor for energy. Although earth isnt the best
+conductor, in order for it to be one there must be something that
+maintains a substantial contact with earth such as a copper pole that
+is big in diameter as well as height.
+
+This chapter mentions how we have developed circuits and communication
+without being physically present with wires. Not only did we develop a
+means of communication that is out of sight, we've made things easier
+as wires are no longer limited by distance. You can connect anything
+with the right wires and circuits and make the wires as long as you want.
+
+some key terms from this chapter include:
+-ground: an electrical contact with the earth
+-common: when two circular circuits are conjoined but stll operate
+independantly
+-zero potential: no voltage is present
+-American Wire Gauge: how the thickness of wires can be measured
