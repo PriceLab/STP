@@ -19,6 +19,8 @@ runTests <- function()
    test_edge_numericAttribute()
    test_edge_characterAttribute()
    test_edge_logicalAttribute()
+   test_twoNoa_twoEda()
+   test_threeNoa_twoEda()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -70,7 +72,7 @@ test_graphWithNodeNumericAttributes <- function()
 {
    print("--- test_graphWithNodeNumericAttributes")
 
-   g <- createTestGraph(1, 0, nodeAttributes=list(age="numeric"))
+   g <- createTestGraph(1, 0, noaSpec=list(age="numeric"))
 
    checkEquals(length(V(g)), 1)
    age.noa <- vertex_attr(g, "age")
@@ -84,7 +86,7 @@ test_charactersAttribute <- function()
 {
     print("--- test_charactersAttribute")
 
-    g <- createTestGraph(4, 0, nodeAttributes=list(string="character"))
+    g <- createTestGraph(4, 0, noaSpec=list(string="character"))
 
     checkEquals(length(V(g)), 4)
     string.noa <- vertex_attr(g, "string")
@@ -140,7 +142,7 @@ test_logicalAttribute <- function()
 {
     print("--- test_logicalAttribute")
 
-    g <- createTestGraph(4, 0, nodeAttributes=list(logical="logical"))
+    g <- createTestGraph(4, 0, noaSpec=list(logical="logical"))
     checkEquals(length(V(g)), 4)
     logical.noa <- vertex_attr(g, "logical")
     checkEquals(length(logical.noa), 4)
@@ -151,7 +153,7 @@ test_edge_logicalAttribute <- function()
 {
     print("--- test_edge_logicalAttribute")
 
-    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(TF="logical"))
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(TF="logical"))
 
     checkEquals(length(E(g)), 4)
     logical.edge <- edge_attr(g, "TF")
@@ -165,7 +167,7 @@ test_edge_characterAttribute <- function()
 {
     print("--- test_edge_characterAttribute")
 
-    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(letters="character"))
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(letters="character"))
 
     checkEquals(length(E(g)), 4)
     character.edge <- edge_attr(g, "letters")
@@ -179,7 +181,7 @@ test_edge_numericAttribute <- function()
 {
     print("--- test_edge_numericAttribute")
 
-    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(numbers="numeric"))
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(numbers="numeric"))
 
     checkEquals(length(E(g)), 4)
     num.edge <- edge_attr(g, "numbers")
@@ -194,7 +196,7 @@ test_edge_twoTypeAttribute <- function()
 {
     print("--- test_edge_twoTypeAttribute")
 
-    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"), edgeAttributes=list(numbers="numeric", age="character"))
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(numbers="numeric", age="character"))
 
     checkEquals(length(E(g)), 4)
     num.edge <- edge_attr(g, "numbers")
@@ -205,14 +207,14 @@ test_edge_twoTypeAttribute <- function()
     checkTrue(is.character(character.edge))
     checkTrue(is.numeric(num.edge))
 
-} #test_edge_twoTypeAttribute
+} # test_edge_twoTypeAttribute
 #----------------------------------------------------------------------------------------------------
 test_edge_threeTypeAttribute <- function()
 {
     print("--- test_edge_threeTypeAttribute")
 
-    g <- createTestGraph(8, 4, nodeAttributes=list(logical="logical"),
-                         edgeAttributes=list(numbers="numeric", age="character",TF="logical"))
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"),
+                         edaSpec=list(numbers="numeric", age="character",TF="logical"))
 
     checkEquals(length(E(g)), 4)
     num.edge <- edge_attr(g, "numbers")
@@ -227,5 +229,60 @@ test_edge_threeTypeAttribute <- function()
     checkTrue(is.numeric(num.edge))
     checkTrue(is.logical(logical.edge))
 
-} #test_edge_threeTypeAttribute
+} # test_edge_threeTypeAttribute
+#----------------------------------------------------------------------------------------------------
+test_twoNoa_twoEda <- function()
+{
+    print("--- test_twoNoa_twoEda")
+
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical",num="numeric"),
+                         edaSpec=list(numbers="numeric", age="character"))
+
+    checkEquals(length(E(g)), 4)
+    checkEquals(length(V(g)), 8)
+    logical.node <- vertex_attr(g, "logical")
+    num.node <- vertex_attr(g, "num")
+    num.edge <- edge_attr(g, "numbers")
+    character.edge <- edge_attr(g, "age")
+
+    checkEquals(length(num.node), 8)
+    checkEquals(length(logical.node), 8)
+    checkEquals(length(num.edge), 4)
+    checkEquals(length(character.edge), 4)
+
+    checkTrue(is.character(character.edge))
+    checkTrue(is.numeric(num.edge))
+    checkTrue(is.logical(logical.node))
+    checkTrue(is.numeric(num.node))
+
+} # test_twoNoa_twoEda
+#----------------------------------------------------------------------------------------------------
+test_threeNoa_twoEda <- function()
+{
+    print("--- test_threeNoa_twoEda")
+
+    g <- createTestGraph(8, 4, noaSpec=list(logical="logical",num="numeric", name= "character"),
+                         edaSpec=list(numbers="numeric", age="character"))
+
+    checkEquals(length(E(g)), 4)
+    checkEquals(length(V(g)), 8)
+    logical.node <- vertex_attr(g, "logical")
+    num.node <- vertex_attr(g, "num")
+    character.node <- vertex_attr(g, "name")
+    num.edge <- edge_attr(g, "numbers")
+    character.edge <- edge_attr(g, "age")
+
+    checkEquals(length(num.node), 8)
+    checkEquals(length(logical.node), 8)
+    checkEquals(length(character.node), 8)
+    checkEquals(length(num.edge), 4)
+    checkEquals(length(character.edge), 4)
+
+    checkTrue(is.character(character.edge))
+    checkTrue(is.numeric(num.edge))
+    checkTrue(is.logical(logical.node))
+    checkTrue(is.numeric(num.node))
+    checkTrue(is.character(character.node))
+
+} # test_threeNoa_twoEda
 #----------------------------------------------------------------------------------------------------

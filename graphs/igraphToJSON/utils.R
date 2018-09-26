@@ -38,7 +38,10 @@ generateRandomLogicals <- function(amount)
 
 } # generateRandomLogicals
 #----------------------------------------------------------------------------------------------------
-createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=list(), edgeAttributes=list())
+#function creates nodes based on 4 parameters
+#noaSpec = Node Attribute Specification
+#edaSpec = Edge Attribute Specification
+createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), edaSpec=list())
 {
     g <- graph_from_literal()
 
@@ -49,16 +52,16 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
 
     g <- g + vertices(node.names)
 
-    for(i in seq_len(length(nodeAttributes))){
-        noa.name <- names(nodeAttributes)[i]
-        noa.type <- nodeAttributes[[i]]
+    for(i in seq_len(length(noaSpec))){
+        noa.name <- names(noaSpec)[i]
+        noa.type <- noaSpec[[i]]
 
         if(noa.type == "logical"){
             noa.values <- generateRandomLogicals(numberOfNodes)
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.values)
             } # if logical
         if(noa.type == "character"){
-            random.string <- round(runif(length(nodeAttributes),0,99))
+            random.string <- round(runif(length(noaSpec),0,99))
             noa.string <- makeRandomString(random.string)
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.string)
             } # if character
@@ -79,16 +82,16 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, nodeAttributes=lis
             g <- set_edge_attr(g, "name", seq_len(numberOfEdges), edge.names)
             } # for i
 
-    for (i in seq_len(length(edgeAttributes))){
-          edge.name <- names(edgeAttributes)[i]
-          edge.type <- edgeAttributes[[i]]
+    for (i in seq_len(length(edaSpec))){
+          edge.name <- names(edaSpec)[i]
+          edge.type <- edaSpec[[i]]
 
         if(edge.type == "logical"){
             edge.values <- generateRandomLogicals(numberOfEdges)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.values)
             } # if logical
         if(edge.type == "character"){
-            random.edge <- round(runif(length(edgeAttributes),0,99))
+            random.edge <- round(runif(length(edaSpec),0,99))
             edge.string <- makeRandomString(random.edge)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.string)
             } # if character
