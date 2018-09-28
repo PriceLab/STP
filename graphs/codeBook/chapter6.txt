@@ -1,0 +1,25 @@
+In chapter 6 of code, the book talks about a new historical character
+and an invention they made that forever changed history and how
+technology and computers function. His name was Samuel Finley Breese
+Morse; a man born in 1791 in Charleston, Massachusetts. he was
+multi-talented, doing multiple things in his lifetime ranging from
+studying at yale, studying art and perfecting painting, running for
+political office in New York, as well as do and teach
+photography. More than any of those things, he was an inventor.
+
+In a time where you could either communicate instantly or communite
+over a long distance but not both at the same time, he saw a problem
+that needed to be solved. What he invented was the starting stages of
+a telagraph. Telagraph literally means "far writing". He started
+experimenting with wires and circuits and relied on
+electromagnetism. He worked with wrapping an iron bar until it became
+a thin wire that a current could run through, thus making it act as a
+magnet which attracts other pieced of iron and steel. Remove the
+current, and the iron bar loses its magnetism.
+
+Electromagnetism was the foundation of his invention. Without it,
+energy was not produced. He used this first stage of the invention to
+produce morse code. Holding down onto the machine for a long period
+would produce a morse dash meanwhile holding it down even longer would
+produce a dash. Then, a person who can read morse code can translate
+to and from morse code with his invention.
