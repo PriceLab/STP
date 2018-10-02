@@ -21,6 +21,7 @@ runTests <- function()
    test_edge_logicalAttribute()
    test_twoNoa_twoEda()
    test_threeNoa_twoEda()
+   test_igraphToDataFrames_2nodes_1edge()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
