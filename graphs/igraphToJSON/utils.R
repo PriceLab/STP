@@ -27,6 +27,32 @@ generateRandomLogicals <- function(amount)
 
 } # generateRandomLogicals
 #----------------------------------------------------------------------------------------------------
+igraphToDataFrame <-  function(igraph)
+{
+    node.names <- get.vertex.attribute(igraph)$name
+
+    tbl.nodes <- data.frame(id=node.names,
+                            stringsAsFactors=FALSE)
+    tbl <- data.frame()
+    for (name in node.names){
+        new.row <- list(node.names=name, count=4)
+        tbl <- rbind(tbl, new.row,stringsAsFactors=FALSE)
+        }
+
+    edgesAsDataFrame <- as_data_frame(igraph)
+
+    for (i in edgesAsDataFrame){
+        edgesSource <- edgesAsDataFrame$from
+        edgesTarget <- edgesAsDataFrame$to
+        tbl.edges <- data.frame(source=c(edgesSource),
+                                target=c(edgesTarget),
+                                stringsAsFactors=FALSE)
+        }
+
+    return(list(numberOfNodes=tbl.nodes, numberOfEdges=tbl.edges))
+
+} # igraphToDataFrame
+#----------------------------------------------------------------------------------------------------
 #function creates nodes based on 4 parameters
 #noaSpec = Node Attribute Specification
 #edaSpec = Edge Attribute Specification
