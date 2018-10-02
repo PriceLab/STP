@@ -286,3 +286,17 @@ test_threeNoa_twoEda <- function()
 
 } # test_threeNoa_twoEda
 #----------------------------------------------------------------------------------------------------
+test_igraphToDataFrames_2nodes_1edge <- function()
+{
+   ig21 <- createTestGraph(numberOfNodes=2, numberOfEdges=1)
+   result <- igraphToDataFrame(ig21)
+   checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
+
+   tbl.nodes <- result$numberOfNodes
+   tbl.edges <- result$numberOfEdges
+
+   checkEquals(as.list(tbl.nodes)$id, get.vertex.attribute(ig21)$name)
+
+
+} # test_igraphToDataFrames_2nodes_1edge
+#----------------------------------------------------------------------------------------------------
