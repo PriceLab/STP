@@ -1,0 +1,38 @@
+This chapter of the book, Code, speaks on the topic of numbers, how
+the counting system came to be, and how it is still relevant to things
+other than counting. Before the number system existed, humans were
+counting on our hands. This is why the number 10, accounting for 10
+toes and 10 fingers, is so important and widely used.
+
+Before we had the counting system, we would count on fingers or by scratch marks. But when people
+started to realize it was getting harder to keep count of things using
+scratches, the roman numeral system was created. Although not commonly
+used anymore, the roman numeral system was one of the earliest number
+systems. Letters that're used in Roman  numerals include I, V, X, L,
+C, D, and M; each representing a different numbers. I is one, V is
+five, X is ten, L is fifty, C is a hundred, D is five hundred, and M
+is a thousand.  Although an effective and effecient number system, it
+had been outdated and replaced by a more useful number system.
+
+The number system we use today is the hindu-Arabic number system, also
+known as the indo-Arabic system. This system originates in India and
+was brought to Europe by Arab mathematicians. One thing about this
+number system that is different is the fact that the number zero is
+more important than ten. The number zero can differentiate between 205
+and 250, something the number ten can not do. The number zero can also
+make a hundred into thousand and also a million with a simple addition
+of more zeros to the end of the number.
+
+Another thing that makes the indo-Arabic system different is that it
+is positional, meaning a particular digit represents a
+different quantity depending on where it is placed in the number. An
+example of this is how 100 and 1,000 have the same two numbers, zero
+and one, but we know 1,000 is greater than 100 because of the position
+of the comma and the fact that there are 3 zeros rather than
+2. Although this chapter has nothing to do with code, the explanation
+and background history of numbers and the importance of certain
+numbers definitely serves a purpose. Seeing how important the number
+zero, one, and ten is shows why they are the two numbers that is used
+in binary code.
+
+
