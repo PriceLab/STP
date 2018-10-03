@@ -1,0 +1,9 @@
+#using the data already built into emacs/R, mtcars, we are using
+ #subset()# to filter the collumns/row
+ example:
+	subset(mtcars, disp > 300)
+	filters mtcars by cars that have a displacement greater than 300
+
+	subset(mtcars, carb ==4)$disp
+	filters mtcars by cars with carb over 4 but is only extracting
+	data from collumn named disp
