@@ -49,7 +49,7 @@ igraphToDataFrames <-  function(igraph)
                                 stringsAsFactors=FALSE)
         }
 
-    return(list(numberOfNodes=tbl.nodes, numberOfEdges=tbl.edges))
+    return(list(tbl.nodes=tbl.nodes, tbl.edges=tbl.edges))
 
 } # igraphToDataFrame
 #----------------------------------------------------------------------------------------------------
@@ -105,7 +105,7 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), ed
             edge.values <- generateRandomLogicals(numberOfEdges)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.values)
             } # if logical
-        if(edge.type == "character"){
+n        if(edge.type == "character"){
             random.edge <- round(runif(length(edaSpec),0,99))
             edge.string <- makeRandomString(random.edge)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.string)

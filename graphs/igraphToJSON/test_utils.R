@@ -22,6 +22,10 @@ runTests <- function()
    test_twoNoa_twoEda()
    test_threeNoa_twoEda()
    test_igraphToDataFrames_2nodes_1edge()
+   test_igraphToDataFrames_5nodes_5edges()
+   test_igraphToDataFrames_1node_nodeAttributes()
+   test_igraphToDataFrame_3nodes_1edges_orphanNode()
+   test_igraphToDataFrame_12nodes_5edges_orphanNodes()
 
 } # runTests
 #----------------------------------------------------------------------------------------------------
@@ -291,13 +295,14 @@ test_igraphToDataFrames_2nodes_1edge <- function()
 {
    ig21 <- createTestGraph(numberOfNodes=2, numberOfEdges=1)
    result <- igraphToDataFrames(ig21)
-   checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
+   checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
-   tbl.nodes <- result$numberOfNodes
-   tbl.edges <- result$numberOfEdges
+   tbl.nodes <- result$tbl.nodes
+   tbl.edges <- result$tbl.edges
 
    checkEquals(as.list(tbl.nodes)$id, get.vertex.attribute(ig21)$name)
-   checkEquals(as.list(tbl.edges)$id, get.edge.attribute(ig21)$name)
+   checkEquals (c(as.list(tbl.edges)$source, as.list(tbl.edges)$target),
+                c(as_data_frame(ig21)$from, as_data_frame(ig21)$to))
 
 } # test_igraphToDataFrames_2nodes_1edge
 #----------------------------------------------------------------------------------------------------
@@ -305,13 +310,14 @@ test_igraphToDataFrames_5nodes_5edges <- function()
 {
     ig55 <- createTestGraph(numberOfNodes=5, numberOfEdges=5)
     result <- igraphToDataFrames(ig55)
-    checkEquals(names(result), c("numberOfNodes", "numerOfEdges"))
+    checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
-    tbl.nodes <- result$numberOfNodes
-    tbl.edges <- result$numberOfEdges
+    tbl.nodes <- result$tbl.nodes
+    tbl.edges <- result$tbl.edges
 
     checkEquals(as.list(tbl.nodes)$id, get.vertex.attribute(ig55)$name)
-    checkEquals(as.list(tbl.edges)$id, get.edge.attribute(ig55)$name)
+    checkEquals(tbl.edges$source, as_data_frame(ig55)$from)
+    checkEquals(tbl.edges$target, as_data_frame(ig55)$to)
 
 } # test_igraphToDataFrames_5nodes_5edges
 #----------------------------------------------------------------------------------------------------
@@ -319,7 +325,7 @@ test_igraphToDataFrames_1node_nodeAttributes <- function()
 {
     ig2noa <- createTestGraph(numberOfNodes=1, noaSpec=list(age="numeric"))
     result <- igraphToDataFrames(ig2noa)
-    checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
+    checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
     checkEquals(length(V(ig2noa)), 1)
     num.node <- vertex_attr(ig2noa, "age")
@@ -329,3 +335,32 @@ test_igraphToDataFrames_1node_nodeAttributes <- function()
 
 } # test_igraphToDataFrames_1node_nodeAttributes
 #----------------------------------------------------------------------------------------------------
+test_igraphToDataFrame_3nodes_1edges_orphanNode <- function()
+{
+    igOrphanNode <- createTestGraph(numberOfNodes=3, numberOfEdges=1)
+    result <- igraphToDataFrames(igOrphanNode)
+    checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
+
+    totalNodes <- result$tbl.nodes$id
+    nodesInEdges <- unique(c(result$tbl.edges$source, result$tbl.edges$target))
+    checkDifference <- setdiff(totalNodes, nodesInEdges)
+
+    checkEquals(length(checkDifference), 1)
+
+} # test_igraphToDataFrame_10nodes_5edges_orphanNode
+#----------------------------------------------------------------------------------------------------
+test_igraphToDataFrame_12nodes_5edges_orphanNodes <- function()
+{
+    igOrphanNodes <- createTestGraph(numberOfNodes=12, numberOfEdges=5)
+    result <- igraphToDataFrames(igOrphanNodes)
+    checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
+
+    totalNodes <- result$tbl.nodes$id
+    nodesInEdges <- unique(c(result$tbl.edges$source, result$tbl.edges$target))
+    checkDifference <- setdiff(totalNodes, nodesInEdges)
+
+    checkEquals(length(checkDifference), 6)
+
+} # test_igraphToDataFrame_12nodes_5edges_orphanNodes
+#----------------------------------------------------------------------------------------------------
+
