@@ -78,6 +78,7 @@ createTestIgraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), e
         if(noa.type == "character"){
             random.string <- round(runif(length(noaSpec),0,99))
             noa.string <- makeRandomString(random.string)
+            browser()
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.string)
             } # if character
         if(noa.type == "numeric"){
