@@ -33,7 +33,7 @@ test_createEmptyTestGraph <- function()
 {
     print("--- test_createEmptyGraph")
 
-    g <- createTestGraph()        # an empty graph, always a good place to start
+    g <- createTestIgraph()        # an empty graph, always a good place to start
 
     checkEquals(length(V(g)), 0)
     checkEquals(length(E(g)), 0)
@@ -44,7 +44,7 @@ test_1NodeTestGraph <- function()
 {
     print("--- test_1NodeTestGraph")
 
-    g <- createTestGraph(1)        # 1 node graph
+    g <- createTestIgraph(1)        # 1 node graph
 
     checkEquals(length(V(g)), 1)
     checkEquals(length(E(g)), 0)
@@ -55,7 +55,7 @@ test_15NodeTestGraph <- function()
 {
     print("--- test_15NodeTestGraph")
 
-    g <- createTestGraph(15)        # 15 node graph
+    g <- createTestIgraph(15)        # 15 node graph
 
     checkEquals(length(V(g)), 15)
     checkEquals(length(E(g)), 0)
@@ -66,7 +66,7 @@ test_4Node2EdgesTestGraph <- function()
 {
     print("--- test_4Node2EdgesTestGraph")
 
-    g <- createTestGraph(4,2)        # 4 node 2 edge graph
+    g <- createTestIgraph(4,2)        # 4 node 2 edge graph
 
     checkEquals(length(V(g)), 4)
     checkEquals(length(E(g)), 2)
@@ -77,7 +77,7 @@ test_graphWithNodeNumericAttributes <- function()
 {
    print("--- test_graphWithNodeNumericAttributes")
 
-   g <- createTestGraph(1, 0, noaSpec=list(age="numeric"))
+   g <- createTestIgraph(1, 0, noaSpec=list(age="numeric"))
 
    checkEquals(length(V(g)), 1)
    age.noa <- vertex_attr(g, "age")
@@ -91,7 +91,7 @@ test_charactersAttribute <- function()
 {
     print("--- test_charactersAttribute")
 
-    g <- createTestGraph(4, 0, noaSpec=list(string="character"))
+    g <- createTestIgraph(4, 0, noaSpec=list(string="character"))
 
     checkEquals(length(V(g)), 4)
     string.noa <- vertex_attr(g, "string")
@@ -147,7 +147,7 @@ test_logicalAttribute <- function()
 {
     print("--- test_logicalAttribute")
 
-    g <- createTestGraph(4, 0, noaSpec=list(logical="logical"))
+    g <- createTestIgraph(4, 0, noaSpec=list(logical="logical"))
     checkEquals(length(V(g)), 4)
     logical.noa <- vertex_attr(g, "logical")
     checkEquals(length(logical.noa), 4)
@@ -158,7 +158,7 @@ test_edge_logicalAttribute <- function()
 {
     print("--- test_edge_logicalAttribute")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(TF="logical"))
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(TF="logical"))
 
     checkEquals(length(E(g)), 4)
     logical.edge <- edge_attr(g, "TF")
@@ -172,7 +172,7 @@ test_edge_characterAttribute <- function()
 {
     print("--- test_edge_characterAttribute")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(letters="character"))
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(letters="character"))
 
     checkEquals(length(E(g)), 4)
     character.edge <- edge_attr(g, "letters")
@@ -186,7 +186,7 @@ test_edge_numericAttribute <- function()
 {
     print("--- test_edge_numericAttribute")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(numbers="numeric"))
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(numbers="numeric"))
 
     checkEquals(length(E(g)), 4)
     num.edge <- edge_attr(g, "numbers")
@@ -201,7 +201,7 @@ test_edge_twoTypeAttribute <- function()
 {
     print("--- test_edge_twoTypeAttribute")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(numbers="numeric", age="character"))
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical"), edaSpec=list(numbers="numeric", age="character"))
 
     checkEquals(length(E(g)), 4)
     num.edge <- edge_attr(g, "numbers")
@@ -218,7 +218,7 @@ test_edge_threeTypeAttribute <- function()
 {
     print("--- test_edge_threeTypeAttribute")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical"),
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical"),
                          edaSpec=list(numbers="numeric", age="character",TF="logical"))
 
     checkEquals(length(E(g)), 4)
@@ -240,7 +240,7 @@ test_twoNoa_twoEda <- function()
 {
     print("--- test_twoNoa_twoEda")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical",num="numeric"),
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical",num="numeric"),
                          edaSpec=list(numbers="numeric", age="character"))
 
     checkEquals(length(E(g)), 4)
@@ -266,7 +266,7 @@ test_threeNoa_twoEda <- function()
 {
     print("--- test_threeNoa_twoEda")
 
-    g <- createTestGraph(8, 4, noaSpec=list(logical="logical",num="numeric", name= "character"),
+    g <- createTestIgraph(8, 4, noaSpec=list(logical="logical",num="numeric", name= "character"),
                          edaSpec=list(numbers="numeric", age="character"))
 
     checkEquals(length(E(g)), 4)
@@ -293,7 +293,7 @@ test_threeNoa_twoEda <- function()
 #----------------------------------------------------------------------------------------------------
 test_igraphToDataFrames_2nodes_1edge <- function()
 {
-   ig21 <- createTestGraph(numberOfNodes=2, numberOfEdges=1)
+   ig21 <- createTestIgraph(numberOfNodes=2, numberOfEdges=1)
    result <- igraphToDataFrames(ig21)
    checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
@@ -308,7 +308,7 @@ test_igraphToDataFrames_2nodes_1edge <- function()
 #----------------------------------------------------------------------------------------------------
 test_igraphToDataFrames_5nodes_5edges <- function()
 {
-    ig55 <- createTestGraph(numberOfNodes=5, numberOfEdges=5)
+    ig55 <- createTestIgraph(numberOfNodes=5, numberOfEdges=5)
     result <- igraphToDataFrames(ig55)
     checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
@@ -323,7 +323,7 @@ test_igraphToDataFrames_5nodes_5edges <- function()
 #----------------------------------------------------------------------------------------------------
 test_igraphToDataFrames_1node_nodeAttributes <- function()
 {
-    ig2noa <- createTestGraph(numberOfNodes=1, noaSpec=list(age="numeric"))
+    ig2noa <- createTestIgraph(numberOfNodes=1, noaSpec=list(age="numeric"))
     result <- igraphToDataFrames(ig2noa)
     checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
@@ -337,7 +337,7 @@ test_igraphToDataFrames_1node_nodeAttributes <- function()
 #----------------------------------------------------------------------------------------------------
 test_igraphToDataFrame_3nodes_1edges_orphanNode <- function()
 {
-    igOrphanNode <- createTestGraph(numberOfNodes=3, numberOfEdges=1)
+    igOrphanNode <- createTestIgraph(numberOfNodes=3, numberOfEdges=1)
     result <- igraphToDataFrames(igOrphanNode)
     checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 
@@ -351,7 +351,7 @@ test_igraphToDataFrame_3nodes_1edges_orphanNode <- function()
 #----------------------------------------------------------------------------------------------------
 test_igraphToDataFrame_12nodes_5edges_orphanNodes <- function()
 {
-    igOrphanNodes <- createTestGraph(numberOfNodes=12, numberOfEdges=5)
+    igOrphanNodes <- createTestIgraph(numberOfNodes=12, numberOfEdges=5)
     result <- igraphToDataFrames(igOrphanNodes)
     checkEquals(names(result), c("tbl.nodes", "tbl.edges"))
 

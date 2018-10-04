@@ -56,7 +56,7 @@ igraphToDataFrames <-  function(igraph)
 #function creates nodes based on 4 parameters
 #noaSpec = Node Attribute Specification
 #edaSpec = Edge Attribute Specification
-createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), edaSpec=list())
+createTestIgraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), edaSpec=list())
 {
     g <- graph_from_literal()
 
@@ -105,7 +105,7 @@ createTestGraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), ed
             edge.values <- generateRandomLogicals(numberOfEdges)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.values)
             } # if logical
-n        if(edge.type == "character"){
+        if(edge.type == "character"){
             random.edge <- round(runif(length(edaSpec),0,99))
             edge.string <- makeRandomString(random.edge)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.string)
@@ -119,6 +119,6 @@ n        if(edge.type == "character"){
 
     return(g)
 
-}# createTestGraph
+}# createTestIgraph
 #----------------------------------------------------------------------------------------------------
 
