@@ -290,14 +290,42 @@ test_threeNoa_twoEda <- function()
 test_igraphToDataFrames_2nodes_1edge <- function()
 {
    ig21 <- createTestGraph(numberOfNodes=2, numberOfEdges=1)
-   result <- igraphToDataFrame(ig21)
+   result <- igraphToDataFrames(ig21)
    checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
 
    tbl.nodes <- result$numberOfNodes
    tbl.edges <- result$numberOfEdges
 
    checkEquals(as.list(tbl.nodes)$id, get.vertex.attribute(ig21)$name)
-
+   checkEquals(as.list(tbl.edges)$id, get.edge.attribute(ig21)$name)
 
 } # test_igraphToDataFrames_2nodes_1edge
+#----------------------------------------------------------------------------------------------------
+test_igraphToDataFrames_5nodes_5edges <- function()
+{
+    ig55 <- createTestGraph(numberOfNodes=5, numberOfEdges=5)
+    result <- igraphToDataFrames(ig55)
+    checkEquals(names(result), c("numberOfNodes", "numerOfEdges"))
+
+    tbl.nodes <- result$numberOfNodes
+    tbl.edges <- result$numberOfEdges
+
+    checkEquals(as.list(tbl.nodes)$id, get.vertex.attribute(ig55)$name)
+    checkEquals(as.list(tbl.edges)$id, get.edge.attribute(ig55)$name)
+
+} # test_igraphToDataFrames_5nodes_5edges
+#----------------------------------------------------------------------------------------------------
+test_igraphToDataFrames_1node_nodeAttributes <- function()
+{
+    ig2noa <- createTestGraph(numberofNodes=5, noaSpec=list(age="numeric"))
+    result <- igraphToDataFrames(ig2noa)
+    checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
+
+    checkEquals(length(V(ig2noa)), 1)
+    num.node <- node_attr(ig2noa, "age")
+    checkEquals(length(num.node), 1)
+
+    checkTrue(is.numeric(num.node))
+
+} # test_igraphToDataFrames_1node_nodeAttributes
 #----------------------------------------------------------------------------------------------------

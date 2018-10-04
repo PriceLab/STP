@@ -27,7 +27,7 @@ generateRandomLogicals <- function(amount)
 
 } # generateRandomLogicals
 #----------------------------------------------------------------------------------------------------
-igraphToDataFrame <-  function(igraph)
+igraphToDataFrames <-  function(igraph)
 {
     node.names <- get.vertex.attribute(igraph)$name
 
