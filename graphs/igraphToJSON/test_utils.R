@@ -317,7 +317,7 @@ test_igraphToDataFrames_5nodes_5edges <- function()
 #----------------------------------------------------------------------------------------------------
 test_igraphToDataFrames_1node_nodeAttributes <- function()
 {
-    ig2noa <- createTestGraph(numberofNodes=5, noaSpec=list(age="numeric"))
+    ig2noa <- createTestGraph(numberOfNodes=1, noaSpec=list(age="numeric"))
     result <- igraphToDataFrames(ig2noa)
     checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
 
