@@ -322,7 +322,7 @@ test_igraphToDataFrames_1node_nodeAttributes <- function()
     checkEquals(names(result), c("numberOfNodes", "numberOfEdges"))
 
     checkEquals(length(V(ig2noa)), 1)
-    num.node <- node_attr(ig2noa, "age")
+    num.node <- vertex_attr(ig2noa, "age")
     checkEquals(length(num.node), 1)
 
     checkTrue(is.numeric(num.node))
