@@ -67,26 +67,39 @@ createTestIgraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), e
 
     g <- g + vertices(node.names)
 
+    print(1)
     for(i in seq_len(length(noaSpec))){
         noa.name <- names(noaSpec)[i]
         noa.type <- noaSpec[[i]]
 
         if(noa.type == "logical"){
             noa.values <- generateRandomLogicals(numberOfNodes)
+
+            printf("about to call set.vertex.attr (logical), %d", i)
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.values)
+            printf("after")
             } # if logical
+
+#        if (i == 3) browser()
         if(noa.type == "character"){
             random.string <- round(runif(length(noaSpec),0,99))
             noa.string <- makeRandomString(random.string)
-            browser()
+
+            printf("about to call set.vertex.attr (character), %d", i)
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), noa.string)
+            printf("after set.vertex.attr")
             } # if character
+
         if(noa.type == "numeric"){
             noa.length <- length(numberOfNodes)
             random.num <- round(runif(noa.length,0,99))
+
+            printf("about to call set.vertex.attr (numeric), %d", i)
+            browser()
             g <- set.vertex.attribute(g, noa.name, seq_len(numberOfNodes), random.num)
+            printf("after")
             } # if numeric
-         } # for
+    } # for
 
     edge.names <- paste("edge-",1:numberOfEdges, sep="")
 
@@ -106,17 +119,19 @@ createTestIgraph <- function(numberOfNodes=0, numberOfEdges=0, noaSpec=list(), e
             edge.values <- generateRandomLogicals(numberOfEdges)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.values)
             } # if logical
+
         if(edge.type == "character"){
             random.edge <- round(runif(length(edaSpec),0,99))
             edge.string <- makeRandomString(random.edge)
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), edge.string)
             } # if character
+
         if(edge.type == "numeric"){
             edge.length <- length(numberOfEdges)
             random.edge.num <- round(runif(edge.length,0,99))
             g <- set.edge.attribute(g, edge.name, seq_len(numberOfEdges), random.edge.num)
             } # if numeric
-         } # for
+      } # for
 
     return(g)
 
