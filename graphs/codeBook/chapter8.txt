@@ -9,7 +9,7 @@ is like any ordinary counting number system except you skip any number
 that has an eight or nine in it. This can be referred to cartoon
 characters and how they only have 8 fingers total; 4 on each
 hand. Counting to ten using the octal system goes: 1,2,3,4,5,6,7,10-
-on hand counting 1,2,3,4, and the other counting 5,6,7,10.
+one hand counting 1,2,3,4, and the other counting 5,6,7,10.
 
 Although the octal system seems strange, it is just as valid a
 counting system as the decimal system is. With that in mind, we can
