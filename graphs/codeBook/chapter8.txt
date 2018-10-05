@@ -1,0 +1,30 @@
+This chapter of the book talks more about the number system we use
+today and how you can easily develop number systems for anything.
+This chapter talks about the importance of the
+number ten- how ten is important because most of us have ten fingers
+and toes and that is how we first started to count things before a
+number system existed. Two systems thatre mentioned a lot in this
+chapter are the octal system and the decimal system.The octal system
+is like any ordinary counting number system except you skip any number
+that has an eight or nine in it. This can be referred to cartoon
+characters and how they only have 8 fingers total; 4 on each
+hand. Counting to ten using the octal system goes: 1,2,3,4,5,6,7,10-
+on hand counting 1,2,3,4, and the other counting 5,6,7,10.
+
+Although the octal system seems strange, it is just as valid a
+counting system as the decimal system is. With that in mind, we can
+also create a number system for a lobster who only posesses 4
+"fingers"- a quanternary system. Counting in quanternary goes like:0,
+1, 2, 3, 10, 11, 12, 13, 20, 21, 22, 23, 30, 31, 32, 33, 100, and so
+forth. Notice how each number in this system correlates to the power
+of four.
+
+With those concepts being introduced, the book then goes into the
+topic of binary code and how it is structured. The binary system is
+consistent of zero's and one's and although it can be hard on the eyes
+to look at and comprehend at first, it really is way more simple than
+the eyes meet. For example, a switch can be a binary digit. It being
+off means 0 and it being on means 1. A lightbulb can be  a binary
+digit- off meaning 0 and lit meaning 1. While this chapter was merely
+an introduction to binary and the number system, binary has a lot to
+do with computers!
