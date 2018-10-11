@@ -1,0 +1,21 @@
+This chapter of the book code dives into the topic of "bit"- finally
+code related. The concept of off and on, zeros and ones, closed or open,
+is mentioned multiple times in this chapter as that has everything to
+do with coding and bit. Bit is often times hidden and deep within
+computer and electronic systems. Bit is not something we see but
+rather, the motor that makes everything work.
+
+The binary system is considered the most
+simple number system possible. There are only two numbers in binary: 1
+and 0. The binary system is so simple that you can count to 7 using only 3
+bits. There are no more 3 digit binary numbers. Everything in bit
+consists of zero's and one's. But to most, it seems way more
+complicated. Probably because bit can look overwhelming with the
+amount of characters there are and how it all consists of only two numbers.
+
+The book goes slightly deep into how binary code is read, comprehended, and the thought
+process behind its creation. The biggest concept taken away from this
+chapter is the fact that two numbers can create a simple language that
+can then be used in ways larger and greater than the simplicity of the
+language itself. Bit is then explained in tables how it cana be
+interperted. logs, power, and patterns are used to translate bit code.
