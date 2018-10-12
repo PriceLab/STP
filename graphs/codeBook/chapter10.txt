@@ -1,0 +1,27 @@
+Chapter 10 of the book, code, speaks on the origin of boolean and its
+creator, George Boole, an englishman born in 1815. He was a man born
+in a time period where it was hard to work and get out of your social
+class. However, he had an inquisitive mind and helpful family that
+helped him work out of his class and became the first professor of
+Mathematics at Queen's College. In his lifetime, he invented a kind of
+algebra that looks exactly like the algebra we use today. Operations are very similar to the
+algebra we know today. The usage of alphabets in arithmetical
+statements still exists and is very relevant today.
+
+Substition, the usage of the alphabet in equations, PEMDAS, and other
+operations are a part of the math that exists today because of
+Boole. The book then relates the concept of mathematical operations to
+circuits. With circuits, logic is everything. The circuit must
+identify which switch is on and off and from there, decide what the
+result is. For example: we can say 0 means that the light is not on
+and 1 means it is. Using just 0 and 1, we can create a table with all
+the possibilities of mixing the two numbers and the combination that
+consits of 1 and 1 is where the light will switch on.
+
+Although George Boole never worked with or wired circuits, he saw the
+vision of seeing a boolean expression being utalized with
+electricity(wires, switches, etc). Before him, nobody had seen the
+connection between boolean expression and the wiring of simple
+switches. No mathematician, electrician, or telegraph operator had
+seen the connection and made advancements in electricity and computing
+like he was able to.
