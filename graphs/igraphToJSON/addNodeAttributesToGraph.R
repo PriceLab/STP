@@ -11,10 +11,9 @@ addNodeAttributesToGraph <- function(igraph, attributeName, nodeNames, noaValues
 
 } # addNodeAttributesToGraph
 #------------------------------------------------------------------------------------------------------------------------
-test_addNodeAttributesToGraph <- function(igraph, attributeName, nodeNames, noaValues)
+test_addNodeAttributesToGraph <- function()
 {
    printf("--- test_addNodeAttributesToGraph")
-
    # make a 5 node, 0 edge graph, no node attributes
    node.names <- LETTERS[1:5]
    g <- graph_from_literal() + vertices(node.names)
@@ -22,10 +21,10 @@ test_addNodeAttributesToGraph <- function(igraph, attributeName, nodeNames, noaV
    sizes <- c(10, 20, 30, 40, 50)
    g.noa <-addNodeAttributesToGraph(g, "size", node.names, sizes)
 
-   for(i in V(g.noa))
-   {
-       checkTrue(get.vertex.attribute(g.noa)$name[i] == node.names[i], get.vertex.attribute(g.noa)$size[i] == sizes[i])
-        } #for i
+   for(i in V(g.noa)){
+       checkTrue(get.vertex.attribute(g.noa)$name[i] == node.names[i],
+                 get.vertex.attribute(g.noa)$size[i] == sizes[i])
+       } #for i
 
    noa.size <- get.vertex.attribute(g.noa, "size")
    checkEquals(length(noa.size),5)
