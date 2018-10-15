@@ -5,7 +5,6 @@ library(RUnit)
 #------------------------------------------------------------------------------------------------------------------------
 addNodeAttributesToGraph <- function(igraph, attributeName, nodeNames, noaValues)
 {
-
     graph.out <- set.vertex.attribute(igraph, attributeName, nodeNames, noaValues)
 
     return(graph.out)
