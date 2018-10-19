@@ -1,0 +1,27 @@
+This chapter of the book, code, talks more about circuits and how
+lightbulbs work. The book mentions networks, switches, and
+more. Switches now are completely different than how they were in the
+older days. people knew that when you wired two switches in series,
+both switches had to be closed for current to flow, and when you wired
+two switches in parallel, one or the other had to be closed. But now
+you can use boolean algebra to design circuits.
+
+All throughout the book, binary is mentioned, taught, and
+explained. Binary, consistent of zeros and ones, looks very
+complicated but as the book explains it, seems less daunting and
+scary. It is actually very simple. There are 4 place holders for the
+zeros and ones. The four place holders represent the numbers "8", "4,
+"2", and "1". Depending where the one or zero is according to the
+ordering of the placeholders, that is how you can translate the
+numbers. The chapter does a better way of explaining this.
+
+Although this chapter touches on a lof of topics, circuits are the
+main focus. Binary, as simple as it is consisting of only two numbers,
+plays a big role in circuits.The combination of binary code and
+numbers decide whether the circuit is on or off with input and
+outputs.
+
+Key words:
+
+-inverter: a single relay wired circuit
+-logic gate: an inverter with two or more inputs
