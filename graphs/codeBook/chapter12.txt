@@ -1,0 +1,23 @@
+chapter 12 of the book delves deeper into the topic of circuits,
+binary numbers, how theyre translated and used, and the simplicity
+and complexicity of it all. The book does a lot of in depth explaining
+of how binary codes can translate to a lot of different meaning and
+even shows you addition of numbers translated in binary.
+
+A concept that is introduced to me in this chapter is how a pattern of
+zeros and ones can trigger either an on or off reaction with
+circuits. As gates were explained in previous chapters, it was
+mentioned a multiple of times this chapter with the assumption that
+the reader has a somewhat understanding of what gates are. Keywords
+mentioned in the chapter include NAND date, AND gate, Or agte, XOR
+gate, and more. These are all different types of gates that each have
+their own specific patern of binary code that makes up the gate.
+
+The addition of binary is important and serves a big role into making
+sure circuits work. For example, a carry output from the last binary
+pair of numbers is needed for the next pair to be added in order for a
+pattern to be formed and numbers to make sense by the
+circuit. Something that computers used but dont anymore is relays. Now,
+we use transistors. And when used, transistors function the same way
+relays do but are much faster, smaller, and quieter- as most things
+have become in computation as the years go by.
