@@ -1,8 +1,5 @@
 library(shiny)
-source("smalldata.txt")
-tbl <- read.table("smalldata.txt", sep = "\t",
-                  header = TRUE,
-                  stringsAsFactors=FALSE)
+df <- read.table("smalldata.txt", header = TRUE, sep = "\t", stringsAsFactors= FALSE)
 #----------------------------------------------------------------------------------------------------
 if (interactive()) {
 ui <-pageWithSidebar(
@@ -10,13 +7,13 @@ ui <-pageWithSidebar(
     sidebarPanel(
         selectInput("colOption1", #drop down menu 1
                     label = "Choose a X variable to display",
-                    choices = c(colnames(tbl))),
+                    choices = c(colnames(df))),
                    selected = "option",
          textOutput("selected_colOption1"),
 
          selectInput("colOption2", #drop down menu 2
                    label = "Choose a Y variable to display",
-                   choices = c(colnames(tbl))),
+                   choices = c(colnames(df))),
                    selected = "option",
         textOutput("selected_colOption2")
         ),
@@ -35,10 +32,23 @@ server <- function(input, output) {
     })
 
     output$xyPlot <- renderPlot({
+
+        topMenuChoice = isolate(input$colOption1)
+        bottomMenuChoice = isolate(input$colOption2)
+
+        print("plot")
+        plot(df[, colOption1], df[,colOption2])
+        print("after plot")
+
+        print("abline")
+        model <- lm(df[, colOption1] ~ df[, colOption2])
+        abline(model)
+        print("after abline")
+
+        print("go button")
         input$goButton
-        colOption1 = isolate(input$colOption1)
-        colOption2 = isolate(input$colOption2)
-        plot(tbl[, colOption1], tbl[,colOption2])
+        print("after go button")
+
         })
 
 }

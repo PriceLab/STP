@@ -42,7 +42,7 @@ server <- function(input, output) {
         fileOptionChoice <- isolate(input$fileSelectOption)
         topMenuChoice <- isolate(input$colOption1)
         bottomMenuChoice <- isolate(input$colOption2)
-        df <- read.table(input$fileSelectOption, header = TRUE, sep = "\t", stringsAsFactors= FALSE)
+        df <- read.table(fileOptionChoice, header = TRUE, sep = "\t", stringsAsFactors= FALSE)
 
 
         print(topMenuChoice)
@@ -50,6 +50,8 @@ server <- function(input, output) {
         print(fileOptionChoice)
 
         output$xyPlot <- renderPlot({
+            browser()
+
             plot(df[,topMenuChoice], df[,bottomMenuChoice], main="Plot Hypothesis", xlab= topMenuChoice, ylab= bottomMenuChoice)
             model <- lm(df[, topMenuChoice] ~ df[, bottomMenuChoice])
             abline(model)
