@@ -1,9 +1,9 @@
 library(shiny)
-fileNames <- c("smalldata.txt", "smalldata2.txt", "smalldata3.txt")
+fileNames <- c("dataBACHELORS.tsv", "dataCERTIFICATION.tsv", "dataHIGHSCHOOL_completion.tsv")
 #----------------------------------------------------------------------------------------------------
 if (interactive()) {
 ui <- pageWithSidebar(
-    headerPanel("Plot"),
+    headerPanel("Relationship Between Race and The Achievement Of Higher Education"),
     sidebarPanel(
                 selectInput("selectFileMenu",
                 label = "Selected file", #first check box
@@ -33,7 +33,6 @@ server <- function(input, output, session) {
 
          observe({
              selectedFile <- input$selectFileMenu
-             print(selectedFile)
              df <- read.table(selectedFile, header = TRUE, sep = "\t", stringsAsFactors= FALSE)
 
              updateSelectInput(session,"colOption1",
@@ -50,10 +49,9 @@ server <- function(input, output, session) {
 
              output$xyPlot <- renderPlot({
                  plot(df[,topMenuChoice], df[,bottomMenuChoice], main="Plot Hypothesis",
-                      xlab= topMenuChoice, ylab= bottomMenuChoice)
+                      xlab= topMenuChoice, ylab= bottomMenuChoice, pch=15, col=c("red", "blue"))
                  model <- lm(df[, topMenuChoice] ~ df[, bottomMenuChoice])
                  abline(model)
-                 print(summary(model))
              })
 
          }) # observeEvent
